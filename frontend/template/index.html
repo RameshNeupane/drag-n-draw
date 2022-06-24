@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script src="../js/main.js" defer></script>
+    <title>Drag-n-Draw</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+
+    <!-- container for different shapes -->
+    <div class="shape-icon-container">
+      <!-- selection icon -->
+      <svg
+        version="1.1"
+        id="selection-icon"
+        class="shape-icon active"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        width="929.966px"
+        height="929.965px"
+        viewBox="0 0 929.966 929.965"
+        style="enable-background: new 0 0 929.966 929.965"
+        xml:space="preserve"
+      >
+        <title>selection</title>
+        <g>
+          <path
+            d="M918.364,344.724l-893.5-343.5c-6.6-2.5-14.1-1-19.2,4.1l-0.4,0.4c-5,5-6.6,12.5-4.1,19.2l343.5,893.501
+		c2.6,6.899,9.2,11.399,16.5,11.5c7.3,0.1,14-4.301,16.8-11.101l109.1-262.2l158.7,158.7c10.2,10.2,26.8,10.2,37,0
+		c36.5-36.5,95.9-95.899,132.4-132.399c10.2-10.2,10.2-26.801,0-37l-158.5-158.7l262.2-109.101c6.8-2.8,11.199-9.5,11.1-16.8l0,0
+		C929.764,353.923,925.164,347.323,918.364,344.724z"
+          />
+        </g>
+      </svg>
+
+      <!-- shape icon square -->
+      <svg
+        version="1.1"
+        id="square-icon"
+        class="shape-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 60 60"
+        style="enable-background: new 0 0 60 60"
+        xml:space="preserve"
+      >
+        <title>rectangle/square</title>
+        <path
+          d="M49.001,0H10.999C4.934,0,0,4.934,0,10.999v38.003C0,55.066,4.934,60,10.999,60h38.002C55.065,60,60,55.066,60,49.001
+	V10.999C60,4.934,55.065,0,49.001,0z"
+        />
+      </svg>
+
+      <!-- diamond icon -->
+      <svg
+        version="1.1"
+        id="diamond-icon"
+        class="shape-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 223.646 223.646"
+        style="enable-background: new 0 0 223.646 223.646"
+        xml:space="preserve"
+      >
+        <title>diamond</title>
+        <polygon
+          points="111.823,0 16.622,111.823 111.823,223.646 207.025,111.823 "
+        />
+      </svg>
+
+      <!-- circle icon -->
+      <svg
+        version="1.1"
+        id="circle-icon"
+        class="shape-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        width="120px"
+        height="120px"
+        viewBox="0 0 120 120"
+        enable-background="new 0 0 120 120"
+        xml:space="preserve"
+      >
+        <title>ellipse/circle</title>
+        <circle cx="60" cy="60.834" r="54.167" />
+      </svg>
+
+      <!-- arrow icon -->
+      <svg
+        version="1.1"
+        id="arrow-icon"
+        class="shape-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 202.654 202.654"
+        style="enable-background: new 0 0 202.654 202.654"
+        xml:space="preserve"
+      >
+        <title>arrow</title>
+        <polygon
+          points="202.654,101.327 161,66.304 161,82.911 0,82.911 0,119.744 161,119.744 161,136.35 "
+        />
+      </svg>
+
+      <!-- line icon -->
+      <svg
+        width="16px"
+        height="16px"
+        viewBox="0 0 16 16"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        id="line-icon"
+        class="shape-icon"
+      >
+        <title>line</title>
+        <path d="M0 7h16v2h-16v-2z"></path>
+      </svg>
+
+      <!-- text icon -->
+      <svg
+        version="1.1"
+        id="text-icon"
+        class="shape-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 278 278"
+        style="enable-background: new 0 0 278 278"
+        xml:space="preserve"
+      >
+        <title>text</title>
+        <path
+          d="M254.833,0h-98.5h-33h-99.5C15.549,0,8.5,6.716,8.5,15v33c0,8.284,6.716,15,15,15s15-6.716,15-15V30h69v218H89.833
+	c-8.284,0-15,6.716-15,15s6.716,15,15,15h99c8.284,0,15-6.716,15-15s-6.716-15-15-15H170.5V30h69v18c0,8.284,6.716,15,15,15
+	s15-6.716,15-15V15C269.5,6.716,263.117,0,254.833,0z"
+        />
+      </svg>
+    </div>
+
+    <!-- contains workspace action icons -->
+    <div class="workspace-icons">
+      <!-- delete workspace -->
+      <svg
+        version="1.1"
+        id="delete-workspace-icon"
+        class="workspace-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 297 297"
+        style="enable-background: new 0 0 297 297"
+        xml:space="preserve"
+      >
+        <title>delete workspace</title>
+        <g>
+          <g>
+            <g>
+              <path
+                d="M150.333,203.762c0-32.35,26.317-58.667,58.667-58.667c6.527,0,12.8,1.087,18.669,3.063l4.882-58.587H47.163
+				l14.518,174.21C63.233,282.408,79.091,297,97.784,297h84.147c18.692,0,34.551-14.592,36.103-33.219l0.173-2.081
+				c-3.001,0.475-6.075,0.729-9.207,0.729C176.651,262.429,150.333,236.112,150.333,203.762z"
+              />
+              <path
+                d="M209,158.714c-24.839,0-45.048,20.209-45.048,45.048c0,24.839,20.209,45.048,45.048,45.048s45.048-20.209,45.048-45.048
+				C254.048,178.923,233.839,158.714,209,158.714z M231.101,216.232c2.659,2.66,2.659,6.971,0,9.631
+				c-1.33,1.329-3.073,1.994-4.816,1.994c-1.742,0-3.486-0.665-4.816-1.994L209,213.393l-12.47,12.47
+				c-1.33,1.329-3.073,1.994-4.816,1.994c-1.742,0-3.486-0.665-4.816-1.994c-2.659-2.66-2.659-6.971,0-9.631l12.47-12.47
+				l-12.47-12.47c-2.659-2.66-2.659-6.971,0-9.631c2.66-2.658,6.971-2.658,9.631,0l12.47,12.47l12.47-12.47
+				c2.661-2.658,6.972-2.658,9.632,0c2.659,2.66,2.659,6.971,0,9.631l-12.47,12.47L231.101,216.232z"
+              />
+              <path
+                d="M112.095,26.102c0-6.883,5.6-12.483,12.483-12.483h30.556c6.884,0,12.484,5.6,12.484,12.483v8.507h13.619v-8.507
+				C181.238,11.71,169.528,0,155.135,0h-30.556c-14.392,0-26.102,11.71-26.102,26.102v8.507h13.618V26.102z"
+              />
+              <path
+                d="M236.762,63.643c0-8.5-6.915-15.415-15.415-15.415H58.367c-8.5,0-15.415,6.915-15.415,15.415v12.31h193.81V63.643z"
+              />
+            </g>
+          </g>
+        </g>
+      </svg>
+
+      <!-- save workspace icon -->
+      <svg
+        version="1.1"
+        id="save-workspace-icon"
+        class="workspace-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 512 512"
+        style="enable-background: new 0 0 512 512"
+        xml:space="preserve"
+      >
+        <title>save workspace</title>
+        <g>
+          <g>
+            <g>
+              <path
+                d="M158.766,146.4h151.175c6.897,0,12.488-5.591,12.488-12.488V12.488C322.429,5.591,316.838,0,309.941,0H158.766
+				c-6.897,0-12.488,5.591-12.488,12.488v121.424C146.278,140.809,151.869,146.4,158.766,146.4z"
+              />
+              <rect x="126.039" y="356.839" width="259.921" height="86.478" />
+              <rect x="126.039" y="245.385" width="259.921" height="86.478" />
+              <path
+                d="M506.505,158.847C426.675,79.017,387.937,40.088,368.696,20.948c-7.877-7.836-21.292-2.254-21.292,8.856v129.083
+				c0,6.897-5.591,12.488-12.488,12.488H133.791c-6.897,0-12.488-5.591-12.488-12.488v-146.4C121.303,5.591,115.712,0,108.815,0
+				H18.732C8.387,0,0,8.387,0,18.732v474.537C0,503.613,8.387,512,18.732,512h474.537c10.345,0,18.732-8.387,18.732-18.732V172.101
+				C512,167.133,510.018,162.361,506.505,158.847z M410.935,455.805h-0.001c0,6.897-5.591,12.488-12.488,12.488H113.554
+				c-6.897,0-12.488-5.591-12.488-12.488V232.9c0-6.897,5.591-12.488,12.488-12.488h284.893c6.897,0,12.488,5.591,12.488,12.488
+				V455.805z"
+              />
+            </g>
+          </g>
+        </g>
+      </svg>
+
+      <!-- download icon for workspace as image -->
+      <svg
+        version="1.1"
+        id="download-workspace-icon"
+        class="workspace-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 49.827 49.827"
+        style="enable-background: new 0 0 49.827 49.827"
+        xml:space="preserve"
+      >
+        <title>download as image (PNG)</title>
+        <g>
+          <path
+            d="M44.939,41.327c0,4.687-3.813,8.5-8.5,8.5H13.388c-4.687,0-8.5-3.813-8.5-8.5
+		c0-1.933,1.567-3.5,3.5-3.5s3.5,1.567,3.5,3.5c0,0.827,0.673,1.5,1.5,1.5h23.051c0.827,0,1.5-0.673,1.5-1.5
+		c0-1.933,1.567-3.5,3.5-3.5S44.939,39.394,44.939,41.327z M22.439,34.302c0.657,0.656,1.547,1.025,2.475,1.025
+		s1.818-0.369,2.475-1.025l10.333-10.334c1.367-1.367,1.367-3.583,0-4.95c-1.367-1.366-3.584-1.367-4.949,0l-4.358,4.358V3.5
+		c0-1.933-1.567-3.5-3.5-3.5s-3.5,1.567-3.5,3.5v19.877l-4.359-4.359c-1.367-1.366-3.583-1.366-4.95,0
+		c-1.367,1.367-1.367,3.583,0,4.95L22.439,34.302z"
+          />
+        </g>
+      </svg>
+    </div>
+
+    <!-- container for shape properties manipulation -->
+    <div class="shape-prop-container">
+      <div class="prop prop-stroke">
+        <label for="stroke">stroke</label>
+        <input type="color" name="stroke" id="stroke" value="#abcdef" />
+      </div>
+      <div class="prop prop-background">
+        <label for="background">background</label>
+        <input type="color" name="background" id="background" value="#abcedf" />
+      </div>
+
+      <div class="prop prop-stroke-width">
+        <label for="stroke-width">stroke width</label>
+        <input
+          type="range"
+          name="stroke-width"
+          id="stroke-width"
+          min="1"
+          max="10"
+          value="5"
+        />
+      </div>
+
+      <div class="prop prop-opacity">
+        <label for="opacity">opacity</label>
+        <input
+          type="range"
+          name="opacity"
+          id="opacity"
+          min="0"
+          max="10"
+          value="5"
+        />
+      </div>
+    </div>
+  </body>
+</html>
