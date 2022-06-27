@@ -1,116 +1,159 @@
-/**
- * @type {HTMLCanvasElement}
- * */
-const canvas = document.getElementById("canvas");
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
-const ctx = canvas.getContext("2d");
+const getAllShapes = async () => {
+  const [
+    rectangleResponse,
+    diamondResponse,
+    ellipseResponse,
+    arrowResponse,
+    lineResponse,
+    textResponse,
+  ] = await Promise.all([
+    fetch("http://localhost:3000/rectangle"),
+    fetch("http://localhost:3000/diamond"),
+    fetch("http://localhost:3000/ellipse"),
+    fetch("http://localhost:3000/arrow"),
+    fetch("http://localhost:3000/line"),
+    fetch("http://localhost:3000/text"),
+  ]);
 
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  console.log(canvas.width, canvas.height);
-});
+  const rectangleJSON = await rectangleResponse.json();
+  const diamondJSON = await diamondResponse.json();
+  const ellipseJSON = await ellipseResponse.json();
+  const arrowJSON = await arrowResponse.json();
+  const lineJSON = await lineResponse.json();
+  const textJSON = await textResponse.json();
+  // const shapes = await response.json();
+  shapeList = [
+    ...rectangleJSON,
+    ...diamondJSON,
+    ...ellipseJSON,
+    ...arrowJSON,
+    ...lineJSON,
+    ...textJSON,
+  ];
+  console.log(shapeList);
+  shapeList.forEach((shape) => {
+    switch (shape["shape"]) {
+      case "rectangle":
+        const rect = new Rectangle(
+          shape["positionX"],
+          shape["positionY"],
+          shape["width"],
+          shape["height"],
+          shape["lineWidth"],
+          shape["fillStyle"],
+          shape["strokeStyle"]
+        );
+        rect.draw(ctx);
+        break;
 
-class Rectangle {
-  constructor(x, y, w, h) {
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.toMove = false;
-    this.mx = 0;
-    this.my = 0;
-  }
+      case "diamond":
+        console.log("diamond");
+        const d = new Diamond(
+          shape["shape"],
+          shape["centerX"],
+          shape["centerY"],
+          shape["width"],
+          shape["height"],
+          shape["lineWidth"],
+          shape["fillStyle"],
+          shape["strokeStyle"]
+        );
+        d.draw(ctx);
+        break;
 
-  draw(ctx) {
-    ctx.beginPath();
-    ctx.fillStyle = "transparent";
-    ctx.strokeStyle = "black";
-    ctx.rect(this.x, this.y, this.w, this.h);
-    ctx.fill();
-    ctx.stroke();
-    ctx.closePath();
-    ctx.save();
-  }
+      case "ellipse":
+        const ellipse = new Ellipse(
+          shape["shape"],
+          shape["centerX"],
+          shape["centerY"],
+          shape["radiusX"],
+          shape["radiusY"],
+          shape["rotation"],
+          shape["startAngle"],
+          shape["endAngle"],
+          shape["counterClockWise"],
+          shape["lineWidth"],
+          shape["fillStyle"],
+          shape["strokeStyle"]
+        );
+        ellipse.draw(ctx);
+        break;
 
-  click(event) {
-    this.mx = event.clientX;
-    this.my = event.clientY;
-    if (
-      (this.mx >= this.x &&
-        this.mx <= this.x + this.w &&
-        this.my >= this.y &&
-        this.my <= this.y + 2) || // check top boundary
-      (this.mx >= this.x &&
-        this.mx <= this.x + this.w &&
-        this.my === this.y + this.h) || // check bottom boundary
-      (this.mx === this.x && this.my >= this.y && this.my <= this.y + this.h) || // check left boundary
-      (this.mx === this.x + this.w &&
-        this.my >= this.y &&
-        this.my <= this.y + this.h) // check right boundary
-    ) {
-      this.toMove = true;
+      case "arrow":
+        const arrow = new Arrow(
+          shape["shape"],
+          shape["positionX"],
+          shape["positionY"],
+          shape["arrowLength"],
+          shape["height"],
+          shape["lineWidth"],
+          shape["fillStyle"],
+          shape["strokeStyle"]
+        );
+        arrow.draw(ctx);
+        break;
+
+      case "line":
+        const line = new Line(
+          shape["shape"],
+          shape["startPositionX"],
+          shape["startPositionY"],
+          shape["endPositionX"],
+          shape["endPositionY"],
+          shape["lineWidth"],
+          shape["lineCap"],
+          shape["strokeStyle"]
+        );
+        line.draw(ctx);
+        break;
+
+      case "text":
+        const text = new TextValue(
+          shape["shape"],
+          shape["textValue"],
+          shape["positionX"],
+          shape["positionY"],
+          shape["font"],
+          shape["fillStyle"]
+        );
+        text.draw(ctx);
+        break;
+
+      default:
+        console.log("invalid shapes");
     }
-  }
-
-  stopMove() {
-    this.toMove = false;
-    console.log(this.toMove);
-  }
-
-  updateShapePosition(event) {
-    if (this.toMove) {
-      const cmx = event.clientX;
-      const cmy = event.clientY;
-      this.x += cmx - this.mx;
-      this.y += cmy - this.my;
-      console.log("mx", this.mx, "my", this.my);
-      this.mx = cmx;
-      this.my = cmy;
-      console.log("cmx", cmx, "cmy", cmy);
-    }
-  }
-}
-
-const rectArr = [];
-
-const generateRect = () => {
-  const rect = new Rectangle(canvas.width / 2 - 50, 150, 100, 100);
-  rect.draw(ctx);
-  rectArr.push(rect);
+    //   console.log(shape["shape"]);
+    //   if (shape["shape"] === "rectangle") {
+    //     const rect = new Rectangle(
+    //       shape["positionX"],
+    //       shape["positionY"],
+    //       shape["width"],
+    //       shape["height"],
+    //       shape["lineWidth"],
+    //       shape["fillStyle"],
+    //       shape["strokeStyle"]
+    //     );
+    //     rect.draw(ctx);
+    //   }
+  });
 };
 
-const btnRect = document.querySelector("#square-icon");
-console.log(btnRect);
-btnRect.addEventListener("click", () => {
-  generateRect();
+getAllShapes();
+
+const diamondbtn = document.querySelector("#diamond-icon");
+diamondbtn.addEventListener("click", () => {
+  const d = new Diamond();
+  d.draw(ctx);
 });
 
-let isMouseDown = false;
-
-canvas.addEventListener("mousedown", (event) => {
-  isMouseDown = true;
-  rectArr.forEach((rec) => {
-    rec.click(event);
-  });
+const arrowBtn = document.querySelector("#arrow-icon");
+arrowBtn.addEventListener("click", () => {
+  const a = new Arrow();
+  a.draw(ctx);
 });
 
-canvas.addEventListener("mouseup", () => {
-  isMouseDown = false;
-  rectArr.forEach((rec) => {
-    rec.stopMove();
-  });
+const lineBtn = document.querySelector("#line-icon");
+lineBtn.addEventListener("click", () => {
+  const line = new Line();
+  line.draw(ctx);
 });
-canvas.addEventListener("mousemove", (event) => {
-  if (isMouseDown) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    rectArr.forEach((rec) => {
-      rec.updateShapePosition(event);
-      rec.draw(ctx);
-    });
-  }
-});
-
-const selection = document.querySelector("#selection-icon");
-console.log(selection);
