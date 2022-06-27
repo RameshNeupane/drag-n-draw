@@ -42,7 +42,7 @@ body {
 }
 
 .shape-icon:hover {
-  fill: rgba(0, 0, 200, 0.8);
+  fill: rgba(0, 0, 100, 0.8);
   transition: all 0.2s ease-in;
 }
 
