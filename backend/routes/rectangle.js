@@ -8,10 +8,8 @@ const rectangleRouter = express.Router();
 rectangleRouter.get("/", async (req, res) => {
   try {
     const rectangles = await Rectangle.find();
-    console.log(rectangles);
     res.json(rectangles);
   } catch (err) {
-    console.log(err);
     res.json({ message: err });
   }
 });
@@ -29,9 +27,7 @@ rectangleRouter.post("/", async (req, res) => {
   try {
     const savedRectangle = await rectangle.save();
     res.json(savedRectangle);
-    console.log(savedRectangle);
   } catch (err) {
-    console.log(err);
     res.json({ message: err });
   }
 });

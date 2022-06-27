@@ -3,32 +3,34 @@ const mongoose = require("mongoose");
 const lineSchema = mongoose.Schema({
   shape: {
     type: String,
+    required: true,
     default: "line",
   },
-  positionX: {
+  startPositionX: {
     type: Number,
     required: true,
   },
-  positionY: {
+  startPositionY: {
     type: Number,
     required: true,
   },
-  width: {
+  endPositionX: {
     type: Number,
     required: true,
   },
-  height: {
+  endPositionY: {
     type: Number,
     required: true,
   },
   lineWidth: {
     type: Number,
     required: true,
+    default: 10,
   },
-  fillStyle: {
+  lineCap: {
     type: String,
     required: true,
-    default: "transparent",
+    default: "butt",
   },
   strokeStyle: {
     type: String,

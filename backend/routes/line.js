@@ -8,30 +8,28 @@ const lineRouter = express.Router();
 lineRouter.get("/", async (req, res) => {
   try {
     const lines = await Line.find();
-    console.log(lines);
     res.json(lines);
   } catch (err) {
-    console.log(err);
     res.json({ message: err });
   }
 });
 
 lineRouter.post("/", async (req, res) => {
   const line = new Line({
-    positionX: req.body.positionX,
-    positionY: req.body.positionY,
-    width: req.body.width,
-    height: req.body.height,
+    shape: req.body.shape,
+    startPositionX: req.body.startPositionX,
+    startPositionY: req.body.startPositionY,
+    endPositionX: req.body.endPositionX,
+    endPositionY: req.body.endPositionY,
     lineWidth: req.body.lineWidth,
-    fillStyle: req.body.fillStyle,
+    lineCap: req.body.lineCap,
+    strokeStyle: req.body.strokeStyle,
   });
 
   try {
     const savedLine = await line.save();
     res.json(savedLine);
-    console.log(savedLine);
   } catch (err) {
-    console.log(err);
     res.json({ message: err });
   }
 });

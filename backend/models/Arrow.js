@@ -13,22 +13,25 @@ const arrowSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  width: {
+  arrowLength: {
     type: Number,
     required: true,
+    default: 100,
   },
   height: {
     type: Number,
     required: true,
+    default: 10,
   },
   lineWidth: {
     type: Number,
     required: true,
+    default: 2,
   },
   fillStyle: {
     type: String,
     required: true,
-    default: "transparent",
+    default: "black",
   },
   strokeStyle: {
     type: String,

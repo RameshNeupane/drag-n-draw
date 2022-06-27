@@ -13,17 +13,34 @@ const ellipseSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  verticalRadius: {
+  radiusX: {
     type: Number,
     required: true,
   },
-  horizontalRadius: {
+  radiusY: {
     type: Number,
     required: true,
+  },
+  rotation: {
+    type: Number,
+    default: 0,
+  },
+  startAngle: {
+    type: Number,
+    default: 0,
+  },
+  endAngle: {
+    type: Number,
+    default: 2 * Math.PI,
+  },
+  counterClockWise: {
+    type: Boolean,
+    default: false,
   },
   lineWidth: {
     type: Number,
     required: true,
+    default: 2,
   },
   fillStyle: {
     type: String,

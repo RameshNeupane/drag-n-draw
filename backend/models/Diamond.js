@@ -5,11 +5,11 @@ const diamondSchema = mongoose.Schema({
     type: String,
     default: "diamond",
   },
-  positionX: {
+  centerX: {
     type: Number,
     required: true,
   },
-  positionY: {
+  centerY: {
     type: Number,
     required: true,
   },

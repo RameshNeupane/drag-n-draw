@@ -8,30 +8,26 @@ const textRouter = express.Router();
 textRouter.get("/", async (req, res) => {
   try {
     const texts = await Text.find();
-    console.log(texts);
     res.json(texts);
   } catch (err) {
-    console.log(err);
     res.json({ message: err });
   }
 });
 
 textRouter.post("/", async (req, res) => {
   const text = new Text({
+    shape: req.body.shape,
+    textValue: req.body.textValue,
     positionX: req.body.positionX,
     positionY: req.body.positionY,
-    width: req.body.width,
-    height: req.body.height,
-    lineWidth: req.body.lineWidth,
+    font: req.body.font,
     fillStyle: req.body.fillStyle,
   });
 
   try {
     const savedText = await text.save();
     res.json(savedText);
-    console.log(savedText);
   } catch (err) {
-    console.log(err);
     res.json({ message: err });
   }
 });

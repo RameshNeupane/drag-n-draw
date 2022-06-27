@@ -5,32 +5,30 @@ const textSchema = mongoose.Schema({
     type: String,
     default: "text",
   },
+
+  textValue: {
+    type: String,
+    required: true,
+    default: "drag-n-draw",
+  },
+
   positionX: {
     type: Number,
     required: true,
   },
+
   positionY: {
     type: Number,
     required: true,
   },
-  width: {
-    type: Number,
-    required: true,
-  },
-  height: {
-    type: Number,
-    required: true,
-  },
-  lineWidth: {
-    type: Number,
-    required: true,
-  },
-  fillStyle: {
+
+  font: {
     type: String,
     required: true,
-    default: "transparent",
+    default: "10px serif",
   },
-  strokeStyle: {
+
+  fillStyle: {
     type: String,
     required: true,
     default: "black",

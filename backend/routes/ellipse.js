@@ -8,30 +8,33 @@ const ellipseRouter = express.Router();
 ellipseRouter.get("/", async (req, res) => {
   try {
     const ellipses = await Ellipse.find();
-    console.log(ellipses);
+
     res.json(ellipses);
   } catch (err) {
-    console.log(err);
     res.json({ message: err });
   }
 });
 
 ellipseRouter.post("/", async (req, res) => {
   const ellipse = new Ellipse({
-    positionX: req.body.positionX,
-    positionY: req.body.positionY,
-    width: req.body.width,
-    height: req.body.height,
+    shape: req.body.shape,
+    centerX: req.body.centerX,
+    centerY: req.body.centerY,
+    radiusX: req.body.radiusX,
+    radiusY: req.body.radiusY,
+    rotation: req.body.rotation,
+    startAngle: req.body.startAngle,
+    endAngle: req.body.endAngle,
+    counterClockWise: req.body.counterClockWise,
     lineWidth: req.body.lineWidth,
     fillStyle: req.body.fillStyle,
+    strokeStyle: req.body.strokeStyle,
   });
 
   try {
     const savedEllipse = await ellipse.save();
     res.json(savedEllipse);
-    console.log(savedEllipse);
   } catch (err) {
-    console.log(err);
     res.json({ message: err });
   }
 });
