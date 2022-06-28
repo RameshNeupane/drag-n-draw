@@ -24,3 +24,8 @@ const fetchPost = async (url, data) => {
   shapeList.push(response);
   drawShapes();
 };
+
+const fetchDelete = async (url) => {
+  await fetch(url, { method: "DELETE" });
+  shapeList.shift();
+};

@@ -93,5 +93,5 @@ textBtn.addEventListener("click", async () => {
     font: text.font,
     fillStyle: text.fillStyle,
   };
-  fetchPost(URL_TEXT, data);
+  await fetchPost(URL_TEXT, data);
 });
