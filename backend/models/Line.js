@@ -9,18 +9,22 @@ const lineSchema = mongoose.Schema({
   startPositionX: {
     type: Number,
     required: true,
+    default: 300,
   },
   startPositionY: {
     type: Number,
     required: true,
+    default: 200,
   },
   endPositionX: {
     type: Number,
     required: true,
+    default: 500,
   },
   endPositionY: {
     type: Number,
     required: true,
+    default: 200,
   },
   lineWidth: {
     type: Number,

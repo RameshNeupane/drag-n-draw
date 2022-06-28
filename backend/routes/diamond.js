@@ -17,8 +17,9 @@ diamondRouter.get("/", async (req, res) => {
 
 diamondRouter.post("/", async (req, res) => {
   const diamond = new Diamond({
-    centerX: req.body.positionX,
-    centerY: req.body.positionY,
+    shape: req.body.shape,
+    centerX: req.body.centerX,
+    centerY: req.body.centerY,
     width: req.body.width,
     height: req.body.height,
     lineWidth: req.body.lineWidth,

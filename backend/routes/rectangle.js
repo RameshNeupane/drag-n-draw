@@ -16,6 +16,7 @@ rectangleRouter.get("/", async (req, res) => {
 
 rectangleRouter.post("/", async (req, res) => {
   const rectangle = new Rectangle({
+    shape: req.body.shape,
     positionX: req.body.positionX,
     positionY: req.body.positionY,
     width: req.body.width,

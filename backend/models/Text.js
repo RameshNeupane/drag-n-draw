@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const textSchema = mongoose.Schema({
   shape: {
     type: String,
+    required: true,
     default: "text",
   },
 
@@ -15,17 +16,19 @@ const textSchema = mongoose.Schema({
   positionX: {
     type: Number,
     required: true,
+    default: 300,
   },
 
   positionY: {
     type: Number,
     required: true,
+    default: 200,
   },
 
   font: {
     type: String,
     required: true,
-    default: "10px serif",
+    default: "16px poppins",
   },
 
   fillStyle: {
