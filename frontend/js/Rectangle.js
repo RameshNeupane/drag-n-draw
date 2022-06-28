@@ -1,12 +1,22 @@
 class Rectangle {
-  constructor(x, y, w, h, lw, fs, ss) {
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.lw = lw;
-    this.fs = fs;
-    this.ss = ss;
+  constructor(
+    name = RECTANGLE_NAME,
+    positionX = RECTANGLE_POSITION_X,
+    positionY = RECTANGLE_POSITION_Y,
+    width = RECTANGLE_WIDTH,
+    height = RECTANGLE_HEIGHT,
+    lineWidth = RECTANGLE_LINE_WIDTH,
+    fillStyle = RECTANGLE_FILL_STYLE,
+    strokeStyle = RECTANGLE_STROKE_STYLE
+  ) {
+    this.name = name;
+    this.positionX = positionX;
+    this.positionY = positionY;
+    this.width = width;
+    this.height = height;
+    this.lineWidth = lineWidth;
+    this.fillStyle = fillStyle;
+    this.strokeStyle = strokeStyle;
     this.toMove = false;
     this.mx = 0;
     this.my = 0;
@@ -14,9 +24,10 @@ class Rectangle {
 
   draw(ctx) {
     ctx.beginPath();
-    ctx.fillStyle = this.fs;
-    ctx.strokeStyle = this.ss;
-    ctx.rect(this.x, this.y, this.w, this.h);
+    ctx.fillStyle = this.fillStyle;
+    ctx.strokeStyle = this.strokeStyle;
+    ctx.lineWidth = this.lineWidth;
+    ctx.rect(this.positionX, this.positionY, this.width, this.height);
     ctx.fill();
     ctx.stroke();
     ctx.closePath();

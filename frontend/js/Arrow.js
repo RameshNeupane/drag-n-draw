@@ -3,16 +3,16 @@
  */
 class Arrow {
   constructor(
-    shape = "arrow",
-    positionX,
-    positionY,
-    arrowLength,
-    height,
-    lineWidth,
-    fillStyle,
-    strokeStyle
+    name = ARROW_NAME,
+    positionX = ARROW_POSITION_X,
+    positionY = ARROW_POSITION_Y,
+    arrowLength = ARROW_LENGTH,
+    height = ARROW_HEIGHT,
+    lineWidth = ARROW_LINE_WIDTH,
+    fillStyle = ARROW_FILL_STYLE,
+    strokeStyle = ARROW_STROKE_STYLE
   ) {
-    this.shape = shape;
+    this.name = name;
     this.positionX = positionX;
     this.positionY = positionY;
     this.arrowLength = arrowLength;

@@ -3,20 +3,21 @@
  */
 class Ellipse {
   constructor(
-    shape = "ellipse",
-    centerX = 600,
-    centerY = 300,
-    radiusX = 20,
-    radiusY = 50,
-    rotation = 0,
-    startAngle = 0,
-    endAngle = 2 * Math.PI,
-    coutnerClockWise = false,
-    lineWidth = 2,
-    fillStyle = "transparent",
-    strokeStyle = "black"
+    name = ELLIPSE_NAME,
+    centerX = ELLIPSE_CENTER_X,
+    centerY = ELLIPSE_CENTER_Y,
+    radiusX = ELLIPSE_RADIUS_X,
+    radiusY = ELLIPSE_RADIUS_Y,
+    rotation = ELLIPSE_ROTATION,
+    startAngle = ELLIPSE_START_ANGLE,
+    endAngle = ELLIPSE_END_ANGLE,
+    coutnerClockWise = ELLIPSE_COUNTER_CLOCK_WISE,
+    lineWidth = ELLIPSE_LINE_WIDTH,
+    fillStyle = ELLIPSE_FILL_STYLE,
+    strokeStyle = ELLIPSE_STROKE_STYLE
   ) {
-    (this.shape = shape), (this.centerX = centerX);
+    this.name = name;
+    this.centerX = centerX;
     this.centerY = centerY;
     this.radiusX = radiusX;
     this.radiusY = radiusY;

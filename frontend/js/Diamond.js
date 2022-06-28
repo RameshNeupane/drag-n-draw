@@ -3,16 +3,16 @@
  */
 class Diamond {
   constructor(
-    shape = "diamond",
-    centerX = 400,
-    centerY = 300,
-    width = 100,
-    height = 100,
-    lineWidth = 2,
-    fillStyle = "transparent",
-    strokeStyle = "black"
+    name = DIAMOND_NAME,
+    centerX = DIAMOND_CENTER_X,
+    centerY = DIAMOND_CENTER_Y,
+    width = DIAMOND_WIDTH,
+    height = DIAMOND_HEIGHT,
+    lineWidth = DIAMOND_LINE_WIDTH,
+    fillStyle = DIAMOND_FILL_STYLE,
+    strokeStyle = DIAMOND_STROKE_STYLE
   ) {
-    this.shape = shape;
+    this.name = name;
     this.centerX = centerX;
     this.centerY = centerY;
     this.width = width;

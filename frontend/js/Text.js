@@ -3,14 +3,14 @@
  */
 class TextValue {
   constructor(
-    shape = "text",
-    textValue,
-    positionX,
-    positionY,
-    font,
-    fillStyle
+    name = TEXT_NAME,
+    textValue = TEXT_VALUE,
+    positionX = TEXT_POSITION_X,
+    positionY = TEXT_POSITION_Y,
+    font = TEXT_FONT,
+    fillStyle = TEXT_FILL_STYLE
   ) {
-    this.shape = shape;
+    this.name = name;
     this.textValue = textValue;
     this.positionX = positionX;
     this.positionY = positionY;

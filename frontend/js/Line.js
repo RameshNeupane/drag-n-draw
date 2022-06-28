@@ -3,16 +3,16 @@
  */
 class Line {
   constructor(
-    shape = "line",
-    startPositionX,
-    startPositionY,
-    endPositionX,
-    endPositionY,
-    lineWidth,
-    lineCap,
-    strokeStyle
+    name = LINE_NAME,
+    startPositionX = LINE_START_POSITION_X,
+    startPositionY = LINE_START_POSITION_Y,
+    endPositionX = LINE_END_POSITION_X,
+    endPositionY = LINE_END_POSITION_Y,
+    lineWidth = LINE_WIDTH,
+    lineCap = LINE_CAP,
+    strokeStyle = LINE_STROKE_STYLE
   ) {
-    this.shape = shape;
+    this.name = name;
     this.startPositionX = startPositionX;
     this.startPositionY = startPositionY;
     this.endPositionX = endPositionX;
