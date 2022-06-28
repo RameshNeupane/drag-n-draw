@@ -16,7 +16,7 @@ arrowRouter.get("/", async (req, res) => {
 
 arrowRouter.post("/", async (req, res) => {
   const arrow = new Arrow({
-    shape: req.body.shape,
+    name: req.body.name,
     positionX: req.body.positionX,
     positionY: req.body.positionY,
     arrowLength: req.body.arrowLength,

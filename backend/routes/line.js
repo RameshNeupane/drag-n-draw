@@ -16,7 +16,7 @@ lineRouter.get("/", async (req, res) => {
 
 lineRouter.post("/", async (req, res) => {
   const line = new Line({
-    shape: req.body.shape,
+    name: req.body.name,
     startPositionX: req.body.startPositionX,
     startPositionY: req.body.startPositionY,
     endPositionX: req.body.endPositionX,

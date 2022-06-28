@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ellipseSchema = mongoose.Schema({
-  shape: {
+  name: {
     type: String,
     required: true,
     default: "ellipse",

@@ -17,7 +17,7 @@ ellipseRouter.get("/", async (req, res) => {
 
 ellipseRouter.post("/", async (req, res) => {
   const ellipse = new Ellipse({
-    shape: req.body.shape,
+    name: req.body.name,
     centerX: req.body.centerX,
     centerY: req.body.centerY,
     radiusX: req.body.radiusX,

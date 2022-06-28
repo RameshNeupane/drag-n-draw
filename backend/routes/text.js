@@ -16,7 +16,7 @@ textRouter.get("/", async (req, res) => {
 
 textRouter.post("/", async (req, res) => {
   const text = new Text({
-    shape: req.body.shape,
+    name: req.body.name,
     textValue: req.body.textValue,
     positionX: req.body.positionX,
     positionY: req.body.positionY,

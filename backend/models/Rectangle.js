@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const rectangleSchema = mongoose.Schema({
-  shape: {
+  name: {
     type: String,
     required: true,
     default: "rectangle",
