@@ -35,4 +35,15 @@ diamondRouter.post("/", async (req, res) => {
   }
 });
 
+diamondRouter.delete("/:diamondId", async (req, res) => {
+  try {
+    const deletedDiamond = await Diamond.deleteOne({
+      _id: req.params.diamondId,
+    });
+    res.json(deletedDiamond);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = diamondRouter;

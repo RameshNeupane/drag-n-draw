@@ -34,4 +34,15 @@ lineRouter.post("/", async (req, res) => {
   }
 });
 
+lineRouter.delete("/:lineId", async (req, res) => {
+  try {
+    const deletedLine = await Line.deleteOne({
+      _id: req.params.lineId,
+    });
+    res.json(deletedLine);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = lineRouter;

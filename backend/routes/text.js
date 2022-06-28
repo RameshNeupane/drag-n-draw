@@ -32,4 +32,15 @@ textRouter.post("/", async (req, res) => {
   }
 });
 
+textRouter.delete("/:textId", async (req, res) => {
+  try {
+    const deletedText = await Text.deleteOne({
+      _id: req.params.textId,
+    });
+    res.json(deletedText);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = textRouter;

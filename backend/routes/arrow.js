@@ -34,4 +34,15 @@ arrowRouter.post("/", async (req, res) => {
   }
 });
 
+arrowRouter.delete("/:arrowId", async (req, res) => {
+  try {
+    const deletedArrow = await Arrow.deleteOne({
+      _id: req.params.arrowId,
+    });
+    res.json(deletedArrow);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = arrowRouter;

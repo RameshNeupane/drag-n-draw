@@ -33,4 +33,14 @@ rectangleRouter.post("/", async (req, res) => {
   }
 });
 
+rectangleRouter.delete("/:rectangleId", async (req, res) => {
+  try {
+    const deletedRectangle = await Rectangle.deleteOne({
+      _id: req.params.rectangleId,
+    });
+    res.json(deletedRectangle);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
 module.exports = rectangleRouter;

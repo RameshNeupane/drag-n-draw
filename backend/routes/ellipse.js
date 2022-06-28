@@ -39,4 +39,15 @@ ellipseRouter.post("/", async (req, res) => {
   }
 });
 
+ellipseRouter.delete("/:ellipseId", async (req, res) => {
+  try {
+    const deletedEllipse = await Ellipse.deleteOne({
+      _id: req.params.ellipseId,
+    });
+    res.json(deletedEllipse);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = ellipseRouter;
