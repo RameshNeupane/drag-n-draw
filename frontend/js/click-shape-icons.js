@@ -1,97 +1,91 @@
 const rectangleBtn = document.querySelector("#square-icon");
 rectangleBtn.addEventListener("click", async () => {
-  const rect = new Rectangle();
   const data = {
-    name: rect.name,
-    positionX: rect.positionX,
-    positionY: rect.positionY,
-    width: rect.width,
-    height: rect.height,
-    lineWidth: rect.lineWidth,
-    fillStyle: rect.fillStyle,
-    strokeStyle: rect.strokeStyle,
+    name: RECTANGLE_NAME,
+    positionX: RECTANGLE_POSITION_X,
+    positionY: RECTANGLE_POSITION_Y,
+    width: RECTANGLE_WIDTH,
+    height: RECTANGLE_HEIGHT,
+    lineWidth: RECTANGLE_LINE_WIDTH,
+    fillStyle: RECTANGLE_FILL_STYLE,
+    strokeStyle: RECTANGLE_STROKE_STYLE,
   };
   fetchPost(URL_RECTANGLE, data);
 });
 
 const diamondBtn = document.querySelector("#diamond-icon");
 diamondBtn.addEventListener("click", async () => {
-  const diamond = new Diamond();
   const data = {
-    name: diamond.name,
-    centerX: diamond.centerX,
-    centerY: diamond.centerY,
-    width: diamond.width,
-    height: diamond.height,
-    lineWidth: diamond.lineWidth,
-    fillStyle: diamond.fillStyle,
-    strokeStyle: diamond.strokeStyle,
+    name: DIAMOND_NAME,
+    centerX: DIAMOND_CENTER_X,
+    centerY: DIAMOND_CENTER_Y,
+    width: DIAMOND_WIDTH,
+    height: DIAMOND_HEIGHT,
+    lineWidth: DIAMOND_LINE_WIDTH,
+    fillStyle: DIAMOND_FILL_STYLE,
+    strokeStyle: DIAMOND_STROKE_STYLE,
   };
   fetchPost(URL_DIAMOND, data);
 });
 
 const ellipseBtn = document.querySelector("#circle-icon");
 ellipseBtn.addEventListener("click", async () => {
-  const ellipse = new Ellipse();
   const data = {
-    name: ellipse.name,
-    centerX: ellipse.centerX,
-    centerY: ellipse.centerY,
-    radiusX: ellipse.radiusX,
-    radiusY: ellipse.radiusY,
-    rotation: ellipse.rotation,
-    startAngle: ellipse.startAngle,
-    endAngle: ellipse.endAngle,
-    coutnerClockWise: ellipse.coutnerClockWise,
-    lineWidth: ellipse.lineWidth,
-    fillStyle: ellipse.fillStyle,
-    strokeStyle: ellipse.strokeStyle,
+    name: ELLIPSE_NAME,
+    centerX: ELLIPSE_CENTER_X,
+    centerY: ELLIPSE_CENTER_Y,
+    radiusX: ELLIPSE_RADIUS_X,
+    radiusY: ELLIPSE_RADIUS_Y,
+    rotation: ELLIPSE_ROTATION,
+    startAngle: ELLIPSE_START_ANGLE,
+    endAngle: ELLIPSE_END_ANGLE,
+    coutnerClockWise: ELLIPSE_COUNTER_CLOCK_WISE,
+    lineWidth: ELLIPSE_LINE_WIDTH,
+    fillStyle: ELLIPSE_FILL_STYLE,
+    strokeStyle: ELLIPSE_STROKE_STYLE,
   };
   fetchPost(URL_ELLIPSE, data);
 });
 
 const arrowBtn = document.querySelector("#arrow-icon");
 arrowBtn.addEventListener("click", async () => {
-  const arrow = new Arrow();
   const data = {
-    name: arrow.name,
-    positionX: arrow.positionX,
-    positionY: arrow.positionY,
-    arrowLength: arrow.arrowLength,
-    height: arrow.height,
-    lineWidth: arrow.lineWidth,
-    fillStyle: arrow.fillStyle,
-    strokeStyle: arrow.strokeStyle,
+    name: ARROW_NAME,
+    positionX: ARROW_POSITION_X,
+    positionY: ARROW_POSITION_Y,
+    arrowLength: ARROW_LENGTH,
+    height: ARROW_HEIGHT,
+    lineWidth: ARROW_LINE_WIDTH,
+    fillStyle: ARROW_FILL_STYLE,
+    strokeStyle: ARROW_STROKE_STYLE,
   };
   fetchPost(URL_ARROW, data);
 });
 
 const lineBtn = document.querySelector("#line-icon");
 lineBtn.addEventListener("click", async () => {
-  const line = new Line();
   const data = {
-    name: line.name,
-    startPositionX: line.startPositionX,
-    startPositionY: line.startPositionY,
-    endPositionX: line.endPositionX,
-    endPositionY: line.endPositionY,
-    lineWidth: line.lineWidth,
-    lineCap: line.lineCap,
-    strokeStyle: line.strokeStyle,
+    name: LINE_NAME,
+    startPositionX: LINE_START_POSITION_X,
+    startPositionY: LINE_START_POSITION_Y,
+    endPositionX: LINE_END_POSITION_X,
+    endPositionY: LINE_END_POSITION_Y,
+    lineWidth: LINE_WIDTH,
+    lineCap: LINE_CAP,
+    strokeStyle: LINE_STROKE_STYLE,
   };
   fetchPost(URL_LINE, data);
 });
 
 const textBtn = document.querySelector("#text-icon");
 textBtn.addEventListener("click", async () => {
-  const text = new TextValue();
   data = {
-    name: text.name,
-    textValue: text.textValue,
-    positionX: text.positionX,
-    positionY: text.positionY,
-    font: text.font,
-    fillStyle: text.fillStyle,
+    name: TEXT_NAME,
+    textValue: TEXT_VALUE,
+    positionX: TEXT_POSITION_X,
+    positionY: TEXT_POSITION_Y,
+    font: TEXT_FONT,
+    fillStyle: TEXT_FILL_STYLE,
   };
   await fetchPost(URL_TEXT, data);
 });
