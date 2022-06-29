@@ -43,4 +43,16 @@ textRouter.delete("/:textId", async (req, res) => {
   }
 });
 
+textRouter.patch("/:textId", async (req, res) => {
+  try {
+    const id = req.params.textId;
+    const updatedData = req.body;
+    const options = { new: true };
+    const result = await Text.findByIdAndUpdate(id, updatedData, options);
+    res.json(result);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = textRouter;

@@ -43,4 +43,17 @@ rectangleRouter.delete("/:rectangleId", async (req, res) => {
     res.json({ message: err });
   }
 });
+
+rectangleRouter.patch("/:rectangleId", async (req, res) => {
+  try {
+    const id = req.params.rectangleId;
+    const updatedData = req.body;
+    const options = { new: true };
+    const result = await Rectangle.findByIdAndUpdate(id, updatedData, options);
+    res.json(result);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = rectangleRouter;

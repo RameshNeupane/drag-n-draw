@@ -45,4 +45,16 @@ lineRouter.delete("/:lineId", async (req, res) => {
   }
 });
 
+lineRouter.patch("/:lineId", async (req, res) => {
+  try {
+    const id = req.params.lineId;
+    const updatedData = req.body;
+    const options = { new: true };
+    const result = await Line.findByIdAndUpdate(id, updatedData, options);
+    res.json(result);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = lineRouter;

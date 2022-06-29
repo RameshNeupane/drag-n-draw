@@ -45,4 +45,16 @@ arrowRouter.delete("/:arrowId", async (req, res) => {
   }
 });
 
+arrowRouter.patch("/:arrowId", async (req, res) => {
+  try {
+    const id = req.params.arrowId;
+    const updatedData = req.body;
+    const options = { new: true };
+    const result = await Arrow.findByIdAndUpdate(id, updatedData, options);
+    res.json(result);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = arrowRouter;

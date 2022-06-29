@@ -46,4 +46,16 @@ diamondRouter.delete("/:diamondId", async (req, res) => {
   }
 });
 
+diamondRouter.patch("/:diamondId", async (req, res) => {
+  try {
+    const id = req.params.diamondId;
+    const updatedData = req.body;
+    const options = { new: true };
+    const result = await Diamond.findByIdAndUpdate(id, updatedData, options);
+    res.json(result);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 module.exports = diamondRouter;
