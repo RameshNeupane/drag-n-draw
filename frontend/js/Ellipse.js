@@ -28,6 +28,43 @@ class Ellipse {
     this.lineWidth = lineWidth;
     this.fillStyle = fillStyle;
     this.strokeStyle = strokeStyle;
+    this.isMouseDown = false;
+    this.mx = 0;
+    this.my = 0;
+
+    canvas.addEventListener("mousedown", (event) => {
+      this.mx = event.clientX;
+      this.my = event.clientY;
+      const distanceBetweenCenterAndMouseClick = Math.sqrt(
+        (this.mx - this.centerX) * (this.mx - this.centerX) +
+          (this.my - this.centerY) * (this.my - this.centerY)
+      );
+
+      if (distanceBetweenCenterAndMouseClick <= 10) {
+        console.log("ellipse");
+        this.isMouseDown = true;
+      }
+    });
+
+    canvas.addEventListener("mouseup", (event) => {
+      this.isMouseDown = false;
+    });
+
+    canvas.addEventListener("mousemove", (event) => {
+      if (this.isMouseDown) {
+        console.log("move");
+        const cmx = event.clientX;
+        const cmy = event.clientY;
+        this.centerX += cmx - this.mx;
+        this.centerY += cmy - this.my;
+        console.log("mx", this.mx, "my", this.my);
+        this.mx = cmx;
+        this.my = cmy;
+        console.log("cmx", cmx, "cmy", cmy);
+        clearCanvas();
+        this.draw(ctx);
+      }
+    });
   }
 
   draw(ctx) {

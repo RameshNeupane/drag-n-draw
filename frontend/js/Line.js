@@ -20,6 +20,15 @@ class Line {
     this.lineWidth = lineWidth;
     this.lineCap = lineCap;
     this.strokeStyle = strokeStyle;
+    this.isMouseDown = false;
+
+    // canvas.addEventListener("mousedown", (event) => {
+    //   this.initialMousePositionX = event.clientX;
+    //   this.initialMousePositionY = event.clientY;
+    //   if (this.initialMousePositionX >= this.startPositionX &&
+    //     this.initialMousePositionX <= this.endPositionX &&
+    //     this.initialMousePositionY >= )
+    // })
   }
   draw(ctx) {
     ctx.beginPath();

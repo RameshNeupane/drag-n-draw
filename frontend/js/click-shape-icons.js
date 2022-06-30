@@ -89,3 +89,10 @@ textBtn.addEventListener("click", async () => {
   };
   await fetchPost(URL_TEXT, data);
 });
+
+// selection btn
+const selectionBtn = document.querySelector("#selection-icon");
+selectionBtn.addEventListener("click", () => {
+  const s = new SelectionBox();
+  s.draw(ctx);
+});

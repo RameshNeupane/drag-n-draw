@@ -3,6 +3,7 @@ const drawShapes = () => {
     switch (shape["name"]) {
       case "rectangle":
         const rect = new Rectangle(
+          shape["_id"],
           shape["name"],
           shape["positionX"],
           shape["positionY"],
@@ -12,6 +13,7 @@ const drawShapes = () => {
           shape["fillStyle"],
           shape["strokeStyle"]
         );
+        objectReferenceList.push(rect);
         rect.draw(ctx);
         break;
 
@@ -91,4 +93,5 @@ const drawShapes = () => {
         console.log("invalid shapes");
     }
   });
+  console.log(objectReferenceList);
 };

@@ -20,8 +20,44 @@ class Arrow {
     this.lineWidth = lineWidth;
     this.fillStyle = fillStyle;
     this.strokeStyle = strokeStyle;
+    this.isMouseDown = false;
+
+    canvas.addEventListener("mousedown", (event) => {
+      this.mousePositionX = event.clientX;
+      this.mousePositionY = event.clientY;
+      if (
+        this.mousePositionX >= this.positionX &&
+        this.mousePositionX <= this.positionX + this.arrowLength &&
+        this.mousePositionY >= this.positionY - this.height / 2 &&
+        this.mousePositionY <= this.positionY + (3 * this.height) / 2
+      ) {
+        console.log("arrow");
+        this.isMouseDown = true;
+      }
+    });
+
+    canvas.addEventListener("mouseup", (event) => {
+      this.isMouseDown = false;
+    });
+
+    canvas.addEventListener("mousemove", (event) => {
+      if (this.isMouseDown) {
+        console.log("move");
+        const currentMousePositionX = event.clientX;
+        const currentMousePositionY = event.clientY;
+        this.positionX += currentMousePositionX - this.mousePositionX;
+        this.positionY += currentMousePositionY - this.mousePositionY;
+        console.log("mx", this.mousePositionX, "my", this.mousePositionY);
+        this.mousePositionX = currentMousePositionX;
+        this.mousePositionY = currentMousePositionY;
+        console.log("cmx", currentMousePositionX, "cmy", currentMousePositionY);
+        clearCanvas();
+        this.draw(ctx);
+      }
+    });
   }
 
+  // draw function
   draw(ctx) {
     ctx.beginPath();
     ctx.fillStyle = this.fillStyle;
