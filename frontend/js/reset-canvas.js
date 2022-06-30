@@ -1,3 +1,6 @@
+/**
+ * reset workspace/canvas to the blank
+ */
 const resetCanvas = () => {
   shapeList.forEach(async (shape) => {
     const url = `${URL_ROOT}/${shape["name"]}/${shape["_id"]}`;
