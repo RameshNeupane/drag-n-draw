@@ -1,9 +1,9 @@
 class SelectionBox {
   constructor() {
-    this.positionX = 300;
-    this.positionY = 300;
-    this.width = 200;
-    this.height = 200;
+    this.positionX = 0;
+    this.positionY = 0;
+    this.width = 0;
+    this.height = 0;
     this.isMouseDown = false;
     this.isMainBox = false;
     this.isTopLeftBox = false;
@@ -16,26 +16,44 @@ class SelectionBox {
     this.isBottomRightBox = false;
 
     canvas.addEventListener("mousedown", (event) => {
-      this.mx = event.clientX;
-      this.my = event.clientY;
+      this.initialMousePositionX = event.clientX;
+      this.initialMousePositionY = event.clientY;
+
+      // check main selection box boundary is clicked
       if (this.checkMainBox()) {
         this.isMainBox = true;
       }
+
+      // check if top left corner box is clicked
       if (this.checkTopLeftBox()) {
         this.isTopLeftBox = true;
-      } else if (this.checkTopMiddleBox()) {
+      }
+      // check if top middle box is clicked
+      else if (this.checkTopMiddleBox()) {
         this.isTopMiddleBox = true;
-      } else if (this.checkTopRightBox()) {
+      }
+      // check if top right corner box is clicked
+      else if (this.checkTopRightBox()) {
         this.isTopRightBox = true;
-      } else if (this.checkMiddleLeftBox()) {
+      }
+      // check if middle left box is clicked
+      else if (this.checkMiddleLeftBox()) {
         this.isMiddleLeftBox = true;
-      } else if (this.checkMiddleRightBox()) {
+      }
+      // check if middle right box is clicked
+      else if (this.checkMiddleRightBox()) {
         this.isMiddleRightBox = true;
-      } else if (this.checkBottomLeftBox()) {
+      }
+      // check if bottom left corner box is clicked
+      else if (this.checkBottomLeftBox()) {
         this.isBottomLeftBox = true;
-      } else if (this.checkBottomMiddleBox()) {
+      }
+      // check if bottom middle box is clicked
+      else if (this.checkBottomMiddleBox()) {
         this.isBottomMiddleBox = true;
-      } else if (this.checkBottomRightBox()) {
+      }
+      // check if bottom right corner box is clicked
+      else if (this.checkBottomRightBox()) {
         this.isBottomRightBox = true;
       }
     });
@@ -51,127 +69,184 @@ class SelectionBox {
       this.isBottomLeftBox = false;
       this.isBottomMiddleBox = false;
       this.isBottomRightBox = false;
+      // shapeList = [...objectReferenceList];
+      // console.log(objectReferenceList);
+      // console.log(shapeList);
     });
 
     canvas.addEventListener("mousemove", (event) => {
+      const currentMousePositionX = event.clientX;
+      const currentMousePositionY = event.clientY;
+      const diffMousePositionX =
+        currentMousePositionX - this.initialMousePositionX;
+      const diffMousePositionY =
+        currentMousePositionY - this.initialMousePositionY;
+
+      // move the selected shape according to the movement of selection box
       if (this.isMainBox) {
-        const cmx = event.clientX;
-        const cmy = event.clientY;
-        this.positionX += cmx - this.mx;
-        this.positionY += cmy - this.my;
-        this.mx = cmx;
-        this.my = cmy;
+        this.positionX += currentMousePositionX - this.initialMousePositionX;
+        this.positionY += currentMousePositionY - this.initialMousePositionY;
+        this.initialMousePositionX = currentMousePositionX;
+        this.initialMousePositionY = currentMousePositionY;
+
+        if (selectedShapeObject["name"] === RECTANGLE_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["positionY"] = this.positionY;
+          // shapeList = [...objectReferenceList];
+        }
         clearCanvas();
         this.draw(ctx);
+        selectedShapeObject.draw(ctx);
+        // drawShapes();
       }
       if (this.isTopLeftBox) {
-        const cmx = event.clientX;
-        const cmy = event.clientY;
-        const diffmx = cmx - this.mx;
-        const diffmy = cmy - this.my;
-        this.positionX += diffmx;
-        this.positionY += diffmy;
-        this.width -= diffmx;
-        this.height -= diffmy;
-        this.mx = cmx;
-        this.my = cmy;
+        this.positionX += diffMousePositionX;
+        this.positionY += diffMousePositionY;
+        this.width -= diffMousePositionX;
+        this.height -= diffMousePositionY;
+        this.initialMousePositionX = currentMousePositionX;
+        this.initialMousePositionY = currentMousePositionY;
+
+        if (selectedShapeObject["name"] === RECTANGLE_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["positionY"] = this.positionY;
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["height"] = this.height;
+        }
         clearCanvas();
         this.draw(ctx);
+        selectedShapeObject.draw(ctx);
+        // drawShapes();
       }
 
       if (this.isTopMiddleBox) {
-        const cmx = event.clientX;
-        const cmy = event.clientY;
-        const diffmx = cmx - this.mx;
-        const diffmy = cmy - this.my;
-        this.positionY += diffmy;
-        this.height -= diffmy;
-        this.mx = cmx;
-        this.my = cmy;
+        this.positionY += diffMousePositionY;
+        this.height -= diffMousePositionY;
+        this.initialMousePositionX = currentMousePositionX;
+        this.initialMousePositionY = currentMousePositionY;
+
+        if (selectedShapeObject["name"] === RECTANGLE_NAME) {
+          selectedShapeObject["positionY"] = this.positionY;
+          selectedShapeObject["height"] = this.height;
+        }
         clearCanvas();
         this.draw(ctx);
+        selectedShapeObject.draw(ctx);
+        // drawShapes();
       }
 
       if (this.isTopRightBox) {
-        const cmx = event.clientX;
-        const cmy = event.clientY;
-        const diffmx = cmx - this.mx;
-        const diffmy = cmy - this.my;
-        this.positionY += diffmy;
-        this.width += diffmx;
-        this.height -= diffmy;
-        this.mx = cmx;
-        this.my = cmy;
+        this.positionY += diffMousePositionY;
+        this.width += diffMousePositionX;
+        this.height -= diffMousePositionY;
+        this.initialMousePositionX = currentMousePositionX;
+        this.initialMousePositionY = currentMousePositionY;
+
+        if (selectedShapeObject["name"] === RECTANGLE_NAME) {
+          selectedShapeObject["positionY"] = this.positionY;
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["height"] = this.height;
+        }
         clearCanvas();
         this.draw(ctx);
+        selectedShapeObject.draw(ctx);
+        // drawShapes();
       }
 
       if (this.isMiddleLeftBox) {
-        const cmx = event.clientX;
-        const cmy = event.clientY;
-        const diffmx = cmx - this.mx;
-        const diffmy = cmy - this.my;
-        this.positionX += diffmx;
-        this.width -= diffmx;
-        this.mx = cmx;
-        this.my = cmy;
+        this.positionX += diffMousePositionX;
+        this.width -= diffMousePositionX;
+        this.initialMousePositionX = currentMousePositionX;
+        this.initialMousePositionY = currentMousePositionY;
+
+        if (selectedShapeObject["name"] === RECTANGLE_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["width"] = this.width;
+        }
         clearCanvas();
         this.draw(ctx);
+        selectedShapeObject.draw(ctx);
+        // drawShapes();
       }
 
       if (this.isMiddleRightBox) {
-        const cmx = event.clientX;
-        const cmy = event.clientY;
-        const diffmx = cmx - this.mx;
-        const diffmy = cmy - this.my;
-        this.width += diffmx;
-        this.mx = cmx;
-        this.my = cmy;
+        this.width += diffMousePositionX;
+        this.initialMousePositionX = currentMousePositionX;
+        this.initialMousePositionY = currentMousePositionY;
+
+        if (selectedShapeObject["name"] === RECTANGLE_NAME) {
+          selectedShapeObject["width"] = this.width;
+        }
         clearCanvas();
         this.draw(ctx);
+        selectedShapeObject.draw(ctx);
       }
 
       if (this.isBottomLeftBox) {
-        const cmx = event.clientX;
-        const cmy = event.clientY;
-        const diffmx = cmx - this.mx;
-        const diffmy = cmy - this.my;
-        this.positionX += diffmx;
-        this.width -= diffmx;
-        this.height += diffmy;
-        this.mx = cmx;
-        this.my = cmy;
+        this.positionX += diffMousePositionX;
+        this.width -= diffMousePositionX;
+        this.height += diffMousePositionY;
+        this.initialMousePositionX = currentMousePositionX;
+        this.initialMousePositionY = currentMousePositionY;
+
+        if (selectedShapeObject["name"] === RECTANGLE_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["height"] = this.height;
+        }
         clearCanvas();
         this.draw(ctx);
+        selectedShapeObject.draw(ctx);
       }
 
       if (this.isBottomMiddleBox) {
-        const cmx = event.clientX;
-        const cmy = event.clientY;
-        const diffmx = cmx - this.mx;
-        const diffmy = cmy - this.my;
-        this.height += diffmy;
-        this.mx = cmx;
-        this.my = cmy;
+        this.height += diffMousePositionY;
+        this.initialMousePositionX = currentMousePositionX;
+        this.initialMousePositionY = currentMousePositionY;
+
+        if (selectedShapeObject["name"] === RECTANGLE_NAME) {
+          selectedShapeObject["height"] = this.height;
+        }
         clearCanvas();
         this.draw(ctx);
+        selectedShapeObject.draw(ctx);
       }
 
       if (this.isBottomRightBox) {
-        const cmx = event.clientX;
-        const cmy = event.clientY;
-        const diffmx = cmx - this.mx;
-        const diffmy = cmy - this.my;
-        this.width += diffmx;
-        this.height += diffmy;
-        this.mx = cmx;
-        this.my = cmy;
+        this.width += diffMousePositionX;
+        this.height += diffMousePositionY;
+        this.initialMousePositionX = currentMousePositionX;
+        this.initialMousePositionY = currentMousePositionY;
+
+        if (selectedShapeObject["name"] === RECTANGLE_NAME) {
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["height"] = this.height;
+        }
         clearCanvas();
         this.draw(ctx);
+        selectedShapeObject.draw(ctx);
       }
     });
   }
 
+  /**
+   * set the shape size of selection box accroding to the selected shape
+   * @param {Number} positionX x coordinate of selection box
+   * @param {Number} positionY y coordinate of selection box
+   * @param {Number} width width of selection box
+   * @param {Number} height height of selection box
+   */
+  setBoxShape(positionX, positionY, width, height) {
+    this.positionX = positionX;
+    this.positionY = positionY;
+    this.width = width;
+    this.height = height;
+  }
+
+  /**
+   * draw selection box
+   * @param {CanvasContext} ctx stores canvas context
+   */
   draw(ctx) {
     ctx.beginPath();
     ctx.lineWidth = 2;
@@ -208,25 +283,25 @@ class SelectionBox {
   checkMainBox() {
     if (
       // top boundary
-      (this.mx >= this.positionX &&
-        this.mx <= this.positionX + this.width &&
-        this.my >= this.positionY &&
-        this.my <= this.positionY + 5) ||
+      (this.initialMousePositionX >= this.positionX &&
+        this.initialMousePositionX <= this.positionX + this.width &&
+        this.initialMousePositionY >= this.positionY &&
+        this.initialMousePositionY <= this.positionY + 5) ||
       // bottom boudary
-      (this.mx >= this.positionX &&
-        this.mx <= this.positionX + this.width &&
-        this.my >= this.positionY + this.height - 5 &&
-        this.my <= this.positionY + this.height) ||
+      (this.initialMousePositionX >= this.positionX &&
+        this.initialMousePositionX <= this.positionX + this.width &&
+        this.initialMousePositionY >= this.positionY + this.height - 5 &&
+        this.initialMousePositionY <= this.positionY + this.height) ||
       // left boundary
-      (this.mx >= this.positionX &&
-        this.mx <= this.positionX + 5 &&
-        this.my >= this.positionY &&
-        this.my <= this.positionY + this.height) ||
+      (this.initialMousePositionX >= this.positionX &&
+        this.initialMousePositionX <= this.positionX + 5 &&
+        this.initialMousePositionY >= this.positionY &&
+        this.initialMousePositionY <= this.positionY + this.height) ||
       // right boundary
-      (this.mx >= this.positionX + this.width - 5 &&
-        this.mx <= this.positionX + this.width &&
-        this.my >= this.positionY - 5 &&
-        this.my <= this.positionY + this.height)
+      (this.initialMousePositionX >= this.positionX + this.width - 5 &&
+        this.initialMousePositionX <= this.positionX + this.width &&
+        this.initialMousePositionY >= this.positionY - 5 &&
+        this.initialMousePositionY <= this.positionY + this.height)
     ) {
       return true;
     } else {
@@ -240,10 +315,10 @@ class SelectionBox {
    */
   checkTopLeftBox() {
     if (
-      this.mx >= this.positionX - 10 &&
-      this.mx <= this.positionX &&
-      this.my >= this.positionY - 10 &&
-      this.my <= this.positionY
+      this.initialMousePositionX >= this.positionX - 10 &&
+      this.initialMousePositionX <= this.positionX &&
+      this.initialMousePositionY >= this.positionY - 10 &&
+      this.initialMousePositionY <= this.positionY
     ) {
       return true;
     } else {
@@ -257,10 +332,10 @@ class SelectionBox {
    */
   checkTopMiddleBox() {
     if (
-      this.mx >= this.positionX + this.width / 2 - 5 &&
-      this.mx <= this.positionX + this.width / 2 + 5 &&
-      this.my >= this.positionY - 10 &&
-      this.my <= this.positionY
+      this.initialMousePositionX >= this.positionX + this.width / 2 - 5 &&
+      this.initialMousePositionX <= this.positionX + this.width / 2 + 5 &&
+      this.initialMousePositionY >= this.positionY - 10 &&
+      this.initialMousePositionY <= this.positionY
     ) {
       return true;
     } else {
@@ -274,10 +349,10 @@ class SelectionBox {
    */
   checkTopRightBox() {
     if (
-      this.mx >= this.positionX + this.width &&
-      this.mx <= this.positionX + this.width + 10 &&
-      this.my >= this.positionY - 10 &&
-      this.my <= this.positionY
+      this.initialMousePositionX >= this.positionX + this.width &&
+      this.initialMousePositionX <= this.positionX + this.width + 10 &&
+      this.initialMousePositionY >= this.positionY - 10 &&
+      this.initialMousePositionY <= this.positionY
     ) {
       return true;
     } else {
@@ -291,10 +366,10 @@ class SelectionBox {
    */
   checkMiddleLeftBox() {
     if (
-      this.mx >= this.positionX - 10 &&
-      this.mx <= this.positionX &&
-      this.my >= this.positionY + (this.height / 2 - 5) &&
-      this.my <= this.positionY + this.height / 2 + 5
+      this.initialMousePositionX >= this.positionX - 10 &&
+      this.initialMousePositionX <= this.positionX &&
+      this.initialMousePositionY >= this.positionY + (this.height / 2 - 5) &&
+      this.initialMousePositionY <= this.positionY + this.height / 2 + 5
     ) {
       return true;
     } else {
@@ -308,10 +383,10 @@ class SelectionBox {
    */
   checkMiddleRightBox() {
     if (
-      this.mx >= this.positionX + this.width &&
-      this.mx <= this.positionX + this.width + 10 &&
-      this.my >= this.positionY + this.height / 2 - 5 &&
-      this.my <= this.positionY + this.height / 2 + 5
+      this.initialMousePositionX >= this.positionX + this.width &&
+      this.initialMousePositionX <= this.positionX + this.width + 10 &&
+      this.initialMousePositionY >= this.positionY + this.height / 2 - 5 &&
+      this.initialMousePositionY <= this.positionY + this.height / 2 + 5
     ) {
       return true;
     } else {
@@ -325,10 +400,10 @@ class SelectionBox {
    */
   checkBottomLeftBox() {
     if (
-      this.mx >= this.positionX - 10 &&
-      this.mx <= this.positionX &&
-      this.my >= this.positionY + this.height &&
-      this.my <= this.positionY + this.height + 10
+      this.initialMousePositionX >= this.positionX - 10 &&
+      this.initialMousePositionX <= this.positionX &&
+      this.initialMousePositionY >= this.positionY + this.height &&
+      this.initialMousePositionY <= this.positionY + this.height + 10
     ) {
       return true;
     } else {
@@ -342,10 +417,10 @@ class SelectionBox {
    */
   checkBottomMiddleBox() {
     if (
-      this.mx >= this.positionX + this.width / 2 - 5 &&
-      this.mx <= this.positionX + this.width / 2 + 5 &&
-      this.my >= this.positionY + this.height &&
-      this.my <= this.positionY + this.height + 10
+      this.initialMousePositionX >= this.positionX + this.width / 2 - 5 &&
+      this.initialMousePositionX <= this.positionX + this.width / 2 + 5 &&
+      this.initialMousePositionY >= this.positionY + this.height &&
+      this.initialMousePositionY <= this.positionY + this.height + 10
     ) {
       return true;
     } else {
@@ -359,10 +434,10 @@ class SelectionBox {
    */
   checkBottomRightBox() {
     if (
-      this.mx >= this.positionX + this.width &&
-      this.mx <= this.positionX + this.width + 10 &&
-      this.my >= this.positionY + this.height &&
-      this.my <= this.positionY + this.height + 10
+      this.initialMousePositionX >= this.positionX + this.width &&
+      this.initialMousePositionX <= this.positionX + this.width + 10 &&
+      this.initialMousePositionY >= this.positionY + this.height &&
+      this.initialMousePositionY <= this.positionY + this.height + 10
     ) {
       return true;
     } else {
