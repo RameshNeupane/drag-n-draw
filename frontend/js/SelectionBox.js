@@ -99,6 +99,16 @@ class SelectionBox {
           selectedShapeObject["centerX"] = this.positionX + this.width / 2;
           selectedShapeObject["centerY"] = this.positionY + this.height / 2;
         }
+
+        if (selectedShapeObject["name"] === ELLIPSE_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === ARROW_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["positionY"] = this.positionY + this.height / 4;
+        }
         clearCanvas();
         this.draw(ctx);
         // selectedShapeObject.draw(ctx);
@@ -125,6 +135,20 @@ class SelectionBox {
           selectedShapeObject["width"] = this.width / 2;
           selectedShapeObject["height"] = this.height / 2;
         }
+
+        if (selectedShapeObject["name"] === ELLIPSE_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["radiusX"] = this.width / 2;
+          selectedShapeObject["radiusY"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === ARROW_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["positionY"] = this.positionY + this.height / 4;
+          selectedShapeObject["arrowLength"] = this.width - this.height / 4;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
         // selectedShapeObject.draw(ctx);
@@ -144,6 +168,18 @@ class SelectionBox {
 
         if (selectedShapeObject["name"] === DIAMOND_NAME) {
           selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["height"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === ELLIPSE_NAME) {
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["radiusY"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === ARROW_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["positionY"] = this.positionY + this.height / 4;
+          selectedShapeObject["arrowLength"] = this.width - this.height / 4;
           selectedShapeObject["height"] = this.height / 2;
         }
         clearCanvas();
@@ -171,6 +207,20 @@ class SelectionBox {
           selectedShapeObject["width"] = this.width / 2;
           selectedShapeObject["height"] = this.height / 2;
         }
+
+        if (selectedShapeObject["name"] === ELLIPSE_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["radiusX"] = this.width / 2;
+          selectedShapeObject["radiusY"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === ARROW_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["positionY"] = this.positionY + this.height / 4;
+          selectedShapeObject["arrowLength"] = this.width - this.height / 4;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
         // selectedShapeObject.draw(ctx);
@@ -194,6 +244,20 @@ class SelectionBox {
           selectedShapeObject["width"] = this.width / 2;
           selectedShapeObject["height"] = this.height / 2;
         }
+
+        if (selectedShapeObject["name"] === ELLIPSE_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["radiusX"] = this.width / 2;
+          selectedShapeObject["radiusY"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === ARROW_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["positionY"] = this.positionY + this.height / 4;
+          selectedShapeObject["arrowLength"] = this.width - this.height / 4;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
         // selectedShapeObject.draw(ctx);
@@ -213,6 +277,20 @@ class SelectionBox {
           selectedShapeObject["centerX"] = this.positionX + this.width / 2;
           selectedShapeObject["centerY"] = this.positionY + this.height / 2;
           selectedShapeObject["width"] = this.width / 2;
+          selectedShapeObject["height"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === ELLIPSE_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["radiusX"] = this.width / 2;
+          selectedShapeObject["radiusY"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === ARROW_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["positionY"] = this.positionY + this.height / 4;
+          selectedShapeObject["arrowLength"] = this.width - this.height / 4;
           selectedShapeObject["height"] = this.height / 2;
         }
         clearCanvas();
@@ -240,9 +318,22 @@ class SelectionBox {
           selectedShapeObject["width"] = this.width / 2;
           selectedShapeObject["height"] = this.height / 2;
         }
+
+        if (selectedShapeObject["name"] === ELLIPSE_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["radiusX"] = this.width / 2;
+          selectedShapeObject["radiusY"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === ARROW_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["positionY"] = this.positionY + this.height / 4;
+          selectedShapeObject["arrowLength"] = this.width - this.height / 4;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
-        // selectedShapeObject.draw(ctx);
         drawShapes();
       }
 
@@ -261,9 +352,22 @@ class SelectionBox {
           selectedShapeObject["width"] = this.width / 2;
           selectedShapeObject["height"] = this.height / 2;
         }
+
+        if (selectedShapeObject["name"] === ELLIPSE_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["radiusX"] = this.width / 2;
+          selectedShapeObject["radiusY"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === ARROW_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["positionY"] = this.positionY + this.height / 4;
+          selectedShapeObject["arrowLength"] = this.width - this.height / 4;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
-        // selectedShapeObject.draw(ctx);
         drawShapes();
       }
 
@@ -284,9 +388,22 @@ class SelectionBox {
           selectedShapeObject["width"] = this.width / 2;
           selectedShapeObject["height"] = this.height / 2;
         }
+
+        if (selectedShapeObject["name"] === ELLIPSE_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["radiusX"] = this.width / 2;
+          selectedShapeObject["radiusY"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === ARROW_NAME) {
+          selectedShapeObject["positionX"] = this.positionX;
+          selectedShapeObject["positionY"] = this.positionY + this.height / 4;
+          selectedShapeObject["arrowLength"] = this.width - this.height / 4;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
-        // selectedShapeObject.draw(ctx);
         drawShapes();
       }
     });

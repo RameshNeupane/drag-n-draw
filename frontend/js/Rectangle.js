@@ -50,6 +50,7 @@ class Rectangle {
       ) {
         console.log("rectangle");
         this.isDetected = true;
+        selectedShapeObject = this;
         selectionBox.setBoxShape(
           this.positionX,
           this.positionY,
@@ -57,7 +58,6 @@ class Rectangle {
           this.height
         );
         selectionBox.draw(ctx);
-        selectedShapeObject = this;
         console.log(selectedShapeObject.name);
       }
     });

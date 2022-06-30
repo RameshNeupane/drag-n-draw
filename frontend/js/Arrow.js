@@ -22,40 +22,32 @@ class Arrow {
     this.lineWidth = lineWidth;
     this.fillStyle = fillStyle;
     this.strokeStyle = strokeStyle;
-    this.isMouseDown = false;
+    this.isDetected = false;
 
     canvas.addEventListener("mousedown", (event) => {
       this.mousePositionX = event.clientX;
       this.mousePositionY = event.clientY;
       if (
         this.mousePositionX >= this.positionX &&
-        this.mousePositionX <= this.positionX + this.arrowLength &&
+        this.mousePositionX <=
+          this.positionX + this.arrowLength + this.height / 2 &&
         this.mousePositionY >= this.positionY - this.height / 2 &&
         this.mousePositionY <= this.positionY + (3 * this.height) / 2
       ) {
-        console.log("arrow");
-        this.isMouseDown = true;
+        this.isDetected = true;
+        selectedShapeObject = this;
+        selectionBox.setBoxShape(
+          this.positionX,
+          this.positionY - this.height / 2,
+          this.arrowLength + this.height / 2,
+          2 * this.height
+        );
+        selectionBox.draw(ctx);
       }
     });
 
     canvas.addEventListener("mouseup", (event) => {
-      this.isMouseDown = false;
-    });
-
-    canvas.addEventListener("mousemove", (event) => {
-      if (this.isMouseDown) {
-        console.log("move");
-        const currentMousePositionX = event.clientX;
-        const currentMousePositionY = event.clientY;
-        this.positionX += currentMousePositionX - this.mousePositionX;
-        this.positionY += currentMousePositionY - this.mousePositionY;
-        console.log("mx", this.mousePositionX, "my", this.mousePositionY);
-        this.mousePositionX = currentMousePositionX;
-        this.mousePositionY = currentMousePositionY;
-        console.log("cmx", currentMousePositionX, "cmy", currentMousePositionY);
-        clearCanvas();
-        this.draw(ctx);
-      }
+      this.isDetected = false;
     });
   }
 

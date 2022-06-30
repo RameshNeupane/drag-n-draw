@@ -30,7 +30,7 @@ class Ellipse {
     this.lineWidth = lineWidth;
     this.fillStyle = fillStyle;
     this.strokeStyle = strokeStyle;
-    this.isMouseDown = false;
+    this.isDetected = false;
     this.mx = 0;
     this.my = 0;
 
@@ -43,13 +43,21 @@ class Ellipse {
       );
 
       if (distanceBetweenCenterAndMouseClick <= 10) {
-        console.log("ellipse");
-        this.isMouseDown = true;
+        this.isDetected = true;
+        selectedShapeObject = this;
+
+        selectionBox.setBoxShape(
+          this.centerX - this.radiusX,
+          this.centerY - this.radiusY,
+          2 * this.radiusX,
+          2 * this.radiusY
+        );
+        selectionBox.draw(ctx);
       }
     });
 
     canvas.addEventListener("mouseup", (event) => {
-      this.isMouseDown = false;
+      this.isDetected = false;
     });
 
     canvas.addEventListener("mousemove", (event) => {
