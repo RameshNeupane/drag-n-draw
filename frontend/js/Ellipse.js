@@ -3,6 +3,7 @@
  */
 class Ellipse {
   constructor(
+    _id,
     name = ELLIPSE_NAME,
     centerX = ELLIPSE_CENTER_X,
     centerY = ELLIPSE_CENTER_Y,
@@ -16,6 +17,7 @@ class Ellipse {
     fillStyle = ELLIPSE_FILL_STYLE,
     strokeStyle = ELLIPSE_STROKE_STYLE
   ) {
+    this._id = _id;
     this.name = name;
     this.centerX = centerX;
     this.centerY = centerY;

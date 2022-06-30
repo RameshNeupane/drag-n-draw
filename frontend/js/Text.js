@@ -3,6 +3,7 @@
  */
 class TextValue {
   constructor(
+    _id,
     name = TEXT_NAME,
     textValue = TEXT_VALUE,
     positionX = TEXT_POSITION_X,
@@ -10,6 +11,7 @@ class TextValue {
     font = TEXT_FONT,
     fillStyle = TEXT_FILL_STYLE
   ) {
+    this._id = _id;
     this.name = name;
     this.textValue = textValue;
     this.positionX = positionX;

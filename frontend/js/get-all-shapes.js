@@ -31,7 +31,8 @@ const getAllShapes = async () => {
     ...textJSON,
   ];
   console.log(shapeList);
-  if (shapeList.length) {
-    drawShapes();
-  }
+  initializeObjectReferenceList();
+  drawShapes();
+  // if (shapeList.length) {
+  // }
 };

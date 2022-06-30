@@ -21,7 +21,8 @@ const fetchPost = async (url, data) => {
     body: JSON.stringify(data),
   });
   response = await response.json();
-  shapeList.push(response);
+  console.log(response);
+  updateObjectReferenceList(response);
   drawShapes();
 };
 

@@ -3,6 +3,7 @@
  */
 class Line {
   constructor(
+    _id,
     name = LINE_NAME,
     startPositionX = LINE_START_POSITION_X,
     startPositionY = LINE_START_POSITION_Y,
@@ -12,6 +13,7 @@ class Line {
     lineCap = LINE_CAP,
     strokeStyle = LINE_STROKE_STYLE
   ) {
+    this._id = _id;
     this.name = name;
     this.startPositionX = startPositionX;
     this.startPositionY = startPositionY;

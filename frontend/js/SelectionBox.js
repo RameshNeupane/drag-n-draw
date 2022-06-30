@@ -84,20 +84,25 @@ class SelectionBox {
 
       // move the selected shape according to the movement of selection box
       if (this.isMainBox) {
-        this.positionX += currentMousePositionX - this.initialMousePositionX;
-        this.positionY += currentMousePositionY - this.initialMousePositionY;
+        this.positionX += diffMousePositionX;
+        this.positionY += diffMousePositionY;
         this.initialMousePositionX = currentMousePositionX;
         this.initialMousePositionY = currentMousePositionY;
 
+        // update rectangle if the selected shape is rectangle
         if (selectedShapeObject["name"] === RECTANGLE_NAME) {
           selectedShapeObject["positionX"] = this.positionX;
           selectedShapeObject["positionY"] = this.positionY;
-          // shapeList = [...objectReferenceList];
+        }
+
+        if (selectedShapeObject["name"] === DIAMOND_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
         }
         clearCanvas();
         this.draw(ctx);
-        selectedShapeObject.draw(ctx);
-        // drawShapes();
+        // selectedShapeObject.draw(ctx);
+        drawShapes();
       }
       if (this.isTopLeftBox) {
         this.positionX += diffMousePositionX;
@@ -113,10 +118,17 @@ class SelectionBox {
           selectedShapeObject["width"] = this.width;
           selectedShapeObject["height"] = this.height;
         }
+
+        if (selectedShapeObject["name"] === DIAMOND_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["width"] = this.width / 2;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
-        selectedShapeObject.draw(ctx);
-        // drawShapes();
+        // selectedShapeObject.draw(ctx);
+        drawShapes();
       }
 
       if (this.isTopMiddleBox) {
@@ -129,10 +141,15 @@ class SelectionBox {
           selectedShapeObject["positionY"] = this.positionY;
           selectedShapeObject["height"] = this.height;
         }
+
+        if (selectedShapeObject["name"] === DIAMOND_NAME) {
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
-        selectedShapeObject.draw(ctx);
-        // drawShapes();
+        // selectedShapeObject.draw(ctx);
+        drawShapes();
       }
 
       if (this.isTopRightBox) {
@@ -147,10 +164,17 @@ class SelectionBox {
           selectedShapeObject["width"] = this.width;
           selectedShapeObject["height"] = this.height;
         }
+
+        if (selectedShapeObject["name"] === DIAMOND_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["width"] = this.width / 2;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
-        selectedShapeObject.draw(ctx);
-        // drawShapes();
+        // selectedShapeObject.draw(ctx);
+        drawShapes();
       }
 
       if (this.isMiddleLeftBox) {
@@ -163,10 +187,17 @@ class SelectionBox {
           selectedShapeObject["positionX"] = this.positionX;
           selectedShapeObject["width"] = this.width;
         }
+
+        if (selectedShapeObject["name"] === DIAMOND_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["width"] = this.width / 2;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
-        selectedShapeObject.draw(ctx);
-        // drawShapes();
+        // selectedShapeObject.draw(ctx);
+        drawShapes();
       }
 
       if (this.isMiddleRightBox) {
@@ -177,9 +208,17 @@ class SelectionBox {
         if (selectedShapeObject["name"] === RECTANGLE_NAME) {
           selectedShapeObject["width"] = this.width;
         }
+
+        if (selectedShapeObject["name"] === DIAMOND_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["width"] = this.width / 2;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
-        selectedShapeObject.draw(ctx);
+        // selectedShapeObject.draw(ctx);
+        drawShapes();
       }
 
       if (this.isBottomLeftBox) {
@@ -194,9 +233,17 @@ class SelectionBox {
           selectedShapeObject["width"] = this.width;
           selectedShapeObject["height"] = this.height;
         }
+
+        if (selectedShapeObject["name"] === DIAMOND_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["width"] = this.width / 2;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
-        selectedShapeObject.draw(ctx);
+        // selectedShapeObject.draw(ctx);
+        drawShapes();
       }
 
       if (this.isBottomMiddleBox) {
@@ -207,9 +254,17 @@ class SelectionBox {
         if (selectedShapeObject["name"] === RECTANGLE_NAME) {
           selectedShapeObject["height"] = this.height;
         }
+
+        if (selectedShapeObject["name"] === DIAMOND_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["width"] = this.width / 2;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
-        selectedShapeObject.draw(ctx);
+        // selectedShapeObject.draw(ctx);
+        drawShapes();
       }
 
       if (this.isBottomRightBox) {
@@ -222,9 +277,17 @@ class SelectionBox {
           selectedShapeObject["width"] = this.width;
           selectedShapeObject["height"] = this.height;
         }
+
+        if (selectedShapeObject["name"] === DIAMOND_NAME) {
+          selectedShapeObject["centerX"] = this.positionX + this.width / 2;
+          selectedShapeObject["centerY"] = this.positionY + this.height / 2;
+          selectedShapeObject["width"] = this.width / 2;
+          selectedShapeObject["height"] = this.height / 2;
+        }
         clearCanvas();
         this.draw(ctx);
-        selectedShapeObject.draw(ctx);
+        // selectedShapeObject.draw(ctx);
+        drawShapes();
       }
     });
   }

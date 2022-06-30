@@ -59,29 +59,11 @@ class Rectangle {
         selectionBox.draw(ctx);
         selectedShapeObject = this;
         console.log(selectedShapeObject.name);
-        // this.isMouseDown = true;
-        // console.log(this.isMouseDown);
       }
     });
 
     canvas.addEventListener("mouseup", (event) => {
       this.isDetected = false;
-    });
-
-    canvas.addEventListener("mousemove", (event) => {
-      if (this.isMouseDown) {
-        console.log("move");
-        const cmx = event.clientX;
-        const cmy = event.clientY;
-        this.positionX += cmx - this.mx;
-        this.positionY += cmy - this.my;
-        console.log("mx", this.mx, "my", this.my);
-        this.mx = cmx;
-        this.my = cmy;
-        console.log("cmx", cmx, "cmy", cmy);
-        clearCanvas();
-        this.draw(ctx);
-      }
     });
   }
 
@@ -95,41 +77,5 @@ class Rectangle {
     ctx.stroke();
     ctx.closePath();
     // ctx.save();
-  }
-
-  click(event) {
-    this.mx = event.clientX;
-    this.my = event.clientY;
-    if (
-      // check top boundary
-      (this.mx >= this.x &&
-        this.mx <= this.x + this.w &&
-        this.my === this.y + this.h) || // check bottom boundary
-      (this.mx === this.x && this.my >= this.y && this.my <= this.y + this.h) || // check left boundary
-      (this.mx === this.x + this.w &&
-        this.my >= this.y &&
-        this.my <= this.y + this.h) // check right boundary
-    ) {
-      this.toMove = true;
-      console.log("clicked");
-    }
-  }
-
-  stopMove() {
-    this.toMove = false;
-    console.log(this.toMove);
-  }
-
-  updateShapePosition(event) {
-    if (this.toMove) {
-      const cmx = event.clientX;
-      const cmy = event.clientY;
-      this.x += cmx - this.mx;
-      this.y += cmy - this.my;
-      console.log("mx", this.mx, "my", this.my);
-      this.mx = cmx;
-      this.my = cmy;
-      console.log("cmx", cmx, "cmy", cmy);
-    }
   }
 }

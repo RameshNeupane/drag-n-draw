@@ -3,6 +3,7 @@
  */
 class Arrow {
   constructor(
+    _id,
     name = ARROW_NAME,
     positionX = ARROW_POSITION_X,
     positionY = ARROW_POSITION_Y,
@@ -12,6 +13,7 @@ class Arrow {
     fillStyle = ARROW_FILL_STYLE,
     strokeStyle = ARROW_STROKE_STYLE
   ) {
+    this._id = _id;
     this.name = name;
     this.positionX = positionX;
     this.positionY = positionY;
