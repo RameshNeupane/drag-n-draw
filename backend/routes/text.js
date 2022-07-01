@@ -20,7 +20,8 @@ textRouter.post("/", async (req, res) => {
     textValue: req.body.textValue,
     positionX: req.body.positionX,
     positionY: req.body.positionY,
-    font: req.body.font,
+    fontSize: req.body.fontSize,
+    fontFamily: req.body.fontFamily,
     fillStyle: req.body.fillStyle,
   });
 

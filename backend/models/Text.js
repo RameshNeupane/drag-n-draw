@@ -25,10 +25,16 @@ const textSchema = mongoose.Schema({
     default: 200,
   },
 
-  font: {
+  fontSize: {
+    type: Number,
+    required: true,
+    default: 16,
+  },
+
+  fontFamily: {
     type: String,
     required: true,
-    default: "16px poppins",
+    default: "poppins",
   },
 
   fillStyle: {
