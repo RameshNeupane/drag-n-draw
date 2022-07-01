@@ -23,32 +23,12 @@ class Line {
     this.lineCap = lineCap;
     this.strokeStyle = strokeStyle;
     this.isDetected = false;
-
-    // canvas.addEventListener("mousedown", (event) => {
-    //   this.initialMousePositionX = event.clientX;
-    //   this.initialMousePositionY = event.clientY;
-    //   if (
-    //     this.initialMousePositionX >= this.startPositionX &&
-    //     this.initialMousePositionX <= this.endPositionX + this.lineWidth &&
-    //     this.initialMousePositionY >= this.startPositionY &&
-    //     this.initialMousePositionY <= this.endPositionX + this.lineWidth
-    //   ) {
-    //     this.isDetected = true;
-    //     selectedShapeObject = this;
-    //     selectionBox.setBoxShape(
-    //       this.startPositionX,
-    //       this.startPositionY,
-    //       this.endPositionX - this.startPositionX,
-    //       this.lineWidth
-    //     );
-    //     selectionBox.draw(ctx);
-    //   }
-    // });
-
-    // canvas.addEventListener("mouseup", (event) => {
-    //   this.isDetected = false;
-    // });
   }
+
+  /**
+   * draw line
+   * @param {CanvasContext} ctx canvas context to draw shape
+   */
   draw(ctx) {
     ctx.beginPath();
     ctx.lineWidth = this.lineWidth;

@@ -42,6 +42,7 @@ class Ellipse {
           (this.my - this.centerY) * (this.my - this.centerY)
       );
 
+      // check mouse position inside the ellipse
       if (distanceBetweenCenterAndMouseClick <= 10) {
         this.isDetected = true;
         selectedShapeObject = this;
@@ -59,24 +60,12 @@ class Ellipse {
     canvas.addEventListener("mouseup", (event) => {
       this.isDetected = false;
     });
-
-    canvas.addEventListener("mousemove", (event) => {
-      if (this.isMouseDown) {
-        console.log("move");
-        const cmx = event.clientX;
-        const cmy = event.clientY;
-        this.centerX += cmx - this.mx;
-        this.centerY += cmy - this.my;
-        console.log("mx", this.mx, "my", this.my);
-        this.mx = cmx;
-        this.my = cmy;
-        console.log("cmx", cmx, "cmy", cmy);
-        clearCanvas();
-        this.draw(ctx);
-      }
-    });
   }
 
+  /**
+   * draw ellipse
+   * @param {CanvasContext} ctx canvas context to draw shape
+   */
   draw(ctx) {
     ctx.beginPath();
     ctx.fillStyle = this.fillStyle;

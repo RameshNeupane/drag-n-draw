@@ -27,6 +27,8 @@ class Diamond {
     canvas.addEventListener("mousedown", (event) => {
       this.mx = event.clientX;
       this.my = event.clientY;
+
+      // check mouse position
       if (
         // top corner
         (this.mx >= this.centerX - 5 &&
@@ -49,7 +51,6 @@ class Diamond {
           this.my >= this.centerY - 5 &&
           this.my <= this.centerY + 5)
       ) {
-        console.log("diamond");
         this.isDetected = true;
         selectedShapeObject = this;
         selectionBox.setBoxShape(
@@ -59,7 +60,6 @@ class Diamond {
           2 * this.height
         );
         selectionBox.draw(ctx);
-        console.log(selectedShapeObject.name);
       }
     });
 
@@ -68,6 +68,10 @@ class Diamond {
     });
   }
 
+  /**
+   * draw diamond
+   * @param {CanvasContext} ctx canvas context to draw shape
+   */
   draw(ctx) {
     ctx.beginPath();
     ctx.fillStyle = this.fillStyle;

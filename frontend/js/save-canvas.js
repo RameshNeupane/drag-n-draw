@@ -2,7 +2,6 @@ const saveCanvas = () => {
   if (objectReferenceList.length) {
     objectReferenceList.forEach(async (shape) => {
       const url = `${URL_ROOT}/${shape["name"]}/${shape["_id"]}`;
-      console.log(url);
       let data = {};
       switch (shape["name"]) {
         case "rectangle":
@@ -85,12 +84,8 @@ const saveCanvas = () => {
             fillStyle: shape["fillStyle"],
           };
           break;
-
-        default:
-          console.log("invalid shapes");
       }
       await fetchPatch(url, data);
-      console.log(shape);
     });
   }
 };

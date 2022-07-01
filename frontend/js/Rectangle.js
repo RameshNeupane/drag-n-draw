@@ -48,7 +48,6 @@ class Rectangle {
           this.my >= this.positionY - 5 &&
           this.my <= this.positionY + this.height + 5)
       ) {
-        console.log("rectangle");
         this.isDetected = true;
         selectedShapeObject = this;
         selectionBox.setBoxShape(
@@ -58,7 +57,6 @@ class Rectangle {
           this.height
         );
         selectionBox.draw(ctx);
-        console.log(selectedShapeObject.name);
       }
     });
 
@@ -67,11 +65,15 @@ class Rectangle {
     });
   }
 
+  /**
+   * draw rectangle
+   * @param {CanvasContext} ctx canvas context to draw shape
+   */
   draw(ctx) {
-    ctx.beginPath();
     ctx.fillStyle = this.fillStyle;
     ctx.strokeStyle = this.strokeStyle;
     ctx.lineWidth = this.lineWidth;
+    ctx.beginPath();
     ctx.rect(this.positionX, this.positionY, this.width, this.height);
     ctx.fill();
     ctx.stroke();

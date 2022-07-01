@@ -21,7 +21,6 @@ const getAllShapes = async () => {
   const arrowJSON = await arrowResponse.json();
   const lineJSON = await lineResponse.json();
   const textJSON = await textResponse.json();
-  // const shapes = await response.json();
   shapeList = [
     ...rectangleJSON,
     ...diamondJSON,
@@ -30,9 +29,6 @@ const getAllShapes = async () => {
     ...lineJSON,
     ...textJSON,
   ];
-  console.log(shapeList);
   initializeObjectReferenceList();
   drawShapes();
-  // if (shapeList.length) {
-  // }
 };

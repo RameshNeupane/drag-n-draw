@@ -32,7 +32,6 @@ const fetchPost = async (url, data) => {
  */
 const fetchDelete = async (url) => {
   await fetch(url, { method: "DELETE" });
-  // shapeList.shift();
   objectReferenceList.shift();
 };
 
@@ -49,6 +48,5 @@ const fetchPatch = async (url, data) => {
     },
     body: JSON.stringify(data),
   });
-
   response = response.json();
 };

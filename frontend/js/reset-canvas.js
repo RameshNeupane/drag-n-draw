@@ -13,6 +13,7 @@ const resetCanvas = () => {
   getAllShapes();
 };
 
+// reset canvas btn
 const resetCanvasBtn = document.querySelector("#delete-workspace-icon");
 resetCanvasBtn.addEventListener(
   "click",

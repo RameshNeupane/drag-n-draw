@@ -30,7 +30,6 @@ class TextValue {
       let actualHeight =
         text.actualBoundingBoxAscent + text.actualBoundingBoxDescent;
       this.height = actualHeight;
-      console.log(this.width, this.height);
 
       if (
         this.mousePositionX >= this.positionX &&
@@ -38,7 +37,6 @@ class TextValue {
         this.mousePositionY >= this.positionY - this.fontSize &&
         this.mousePositionY <= this.positionY
       ) {
-        // this.isDetected = true;
         selectedShapeObject = this;
         selectionBox.setBoxShape(
           this.positionX - this.width / 2,
@@ -47,11 +45,14 @@ class TextValue {
           this.fontSize
         );
         selectionBox.draw(ctx);
-        console.log(selectedShapeObject);
       }
     });
   }
 
+  /**
+   * draw text
+   * @param {CanvasContext} ctx canvas context to draw shape
+   */
   draw(ctx) {
     ctx.beginPath();
     ctx.fillStyle = this.fillStyle;

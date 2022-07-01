@@ -27,6 +27,8 @@ class Arrow {
     canvas.addEventListener("mousedown", (event) => {
       this.mousePositionX = event.clientX;
       this.mousePositionY = event.clientY;
+
+      // check mouse position inside the arrow
       if (
         this.mousePositionX >= this.positionX &&
         this.mousePositionX <=
@@ -52,7 +54,10 @@ class Arrow {
     });
   }
 
-  // draw function
+  /**
+   * draw arrow
+   * @param {CanvasContext} ctx canvas context to draw shape
+   */
   draw(ctx) {
     ctx.beginPath();
     ctx.fillStyle = this.fillStyle;

@@ -11,7 +11,6 @@ rectangleBtn.addEventListener("click", async () => {
     strokeStyle: RECTANGLE_STROKE_STYLE,
   };
   fetchPost(URL_RECTANGLE, data);
-  // objectReferenceList.push(new Rectangle())
 });
 
 const diamondBtn = document.querySelector("#diamond-icon");

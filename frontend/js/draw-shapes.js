@@ -94,9 +94,6 @@ const initializeObjectReferenceList = () => {
         );
         objectReferenceList.push(text);
         break;
-
-      default:
-        console.log("invalid shapes");
     }
   });
 };
@@ -194,16 +191,11 @@ const updateObjectReferenceList = (shape) => {
       );
       objectReferenceList.push(text);
       break;
-
-    default:
-      console.log("invalid shapes");
   }
 };
 
 const drawShapes = () => {
   objectReferenceList.forEach((object) => {
-    // console.log(object);
     object.draw(ctx);
   });
-  // console.log(objectReferenceList);
 };
