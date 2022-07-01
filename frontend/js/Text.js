@@ -32,7 +32,7 @@ class TextValue {
       this.height = actualHeight;
 
       if (
-        this.mousePositionX >= this.positionX &&
+        this.mousePositionX >= this.positionX - this.width / 2 &&
         this.mousePositionX <= this.positionX + this.width &&
         this.mousePositionY >= this.positionY - this.fontSize &&
         this.mousePositionY <= this.positionY
