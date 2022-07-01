@@ -80,12 +80,13 @@ lineBtn.addEventListener("click", async () => {
 
 const textBtn = document.querySelector("#text-icon");
 textBtn.addEventListener("click", async () => {
-  data = {
+  const data = {
     name: TEXT_NAME,
     textValue: TEXT_VALUE,
     positionX: TEXT_POSITION_X,
     positionY: TEXT_POSITION_Y,
-    font: TEXT_FONT,
+    fontSize: TEXT_FONT_SIZE,
+    fontFamily: TEXT_FONT_FAMILY,
     fillStyle: TEXT_FILL_STYLE,
   };
   await fetchPost(URL_TEXT, data);

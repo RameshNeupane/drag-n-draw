@@ -42,6 +42,7 @@ class Arrow {
           this.arrowLength + this.height / 2,
           2 * this.height
         );
+        clearCanvas();
         selectionBox.draw(ctx);
       }
     });

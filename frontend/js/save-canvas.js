@@ -80,7 +80,8 @@ const saveCanvas = () => {
             textValue: shape["textValue"],
             positionX: shape["positionX"],
             positionY: shape["positionY"],
-            font: shape["font"],
+            fontSize: shape["fontSize"],
+            fontFamily: shape["fontFamily"],
             fillStyle: shape["fillStyle"],
           };
           break;

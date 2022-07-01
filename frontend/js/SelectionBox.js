@@ -109,6 +109,11 @@ class SelectionBox {
           selectedShapeObject["positionX"] = this.positionX;
           selectedShapeObject["positionY"] = this.positionY + this.height / 4;
         }
+
+        if (selectedShapeObject["name"] === TEXT_NAME) {
+          selectedShapeObject["positionX"] = this.positionX + this.width / 2;
+          selectedShapeObject["positionY"] = this.positionY + this.height;
+        }
         clearCanvas();
         this.draw(ctx);
         // selectedShapeObject.draw(ctx);
@@ -149,6 +154,13 @@ class SelectionBox {
           selectedShapeObject["arrowLength"] = this.width - this.height / 4;
           selectedShapeObject["height"] = this.height / 2;
         }
+
+        if (selectedShapeObject["name"] === TEXT_NAME) {
+          selectedShapeObject["positionX"] = this.positionX + this.width / 2;
+          selectedShapeObject["positionY"] = this.positionY + this.height;
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["fontSize"] = this.height;
+        }
         clearCanvas();
         this.draw(ctx);
         // selectedShapeObject.draw(ctx);
@@ -181,6 +193,13 @@ class SelectionBox {
           selectedShapeObject["positionY"] = this.positionY + this.height / 4;
           selectedShapeObject["arrowLength"] = this.width - this.height / 4;
           selectedShapeObject["height"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === TEXT_NAME) {
+          selectedShapeObject["positionX"] = this.positionX + this.width / 2;
+          selectedShapeObject["positionY"] = this.positionY + this.height;
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["fontSize"] = this.height;
         }
         clearCanvas();
         this.draw(ctx);
@@ -221,6 +240,13 @@ class SelectionBox {
           selectedShapeObject["arrowLength"] = this.width - this.height / 4;
           selectedShapeObject["height"] = this.height / 2;
         }
+
+        if (selectedShapeObject["name"] === TEXT_NAME) {
+          selectedShapeObject["positionX"] = this.positionX + this.width / 2;
+          selectedShapeObject["positionY"] = this.positionY + this.height;
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["fontSize"] = this.height;
+        }
         clearCanvas();
         this.draw(ctx);
         // selectedShapeObject.draw(ctx);
@@ -258,6 +284,13 @@ class SelectionBox {
           selectedShapeObject["arrowLength"] = this.width - this.height / 4;
           selectedShapeObject["height"] = this.height / 2;
         }
+
+        if (selectedShapeObject["name"] === TEXT_NAME) {
+          selectedShapeObject["positionX"] = this.positionX + this.width / 2;
+          selectedShapeObject["positionY"] = this.positionY + this.height;
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["fontSize"] = this.height;
+        }
         clearCanvas();
         this.draw(ctx);
         // selectedShapeObject.draw(ctx);
@@ -292,6 +325,13 @@ class SelectionBox {
           selectedShapeObject["positionY"] = this.positionY + this.height / 4;
           selectedShapeObject["arrowLength"] = this.width - this.height / 4;
           selectedShapeObject["height"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === TEXT_NAME) {
+          selectedShapeObject["positionX"] = this.positionX + this.width / 2;
+          selectedShapeObject["positionY"] = this.positionY + this.height;
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["fontSize"] = this.height;
         }
         clearCanvas();
         this.draw(ctx);
@@ -332,6 +372,13 @@ class SelectionBox {
           selectedShapeObject["arrowLength"] = this.width - this.height / 4;
           selectedShapeObject["height"] = this.height / 2;
         }
+
+        if (selectedShapeObject["name"] === TEXT_NAME) {
+          selectedShapeObject["positionX"] = this.positionX + this.width / 2;
+          selectedShapeObject["positionY"] = this.positionY + this.height;
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["fontSize"] = this.height;
+        }
         clearCanvas();
         this.draw(ctx);
         drawShapes();
@@ -365,6 +412,13 @@ class SelectionBox {
           selectedShapeObject["positionY"] = this.positionY + this.height / 4;
           selectedShapeObject["arrowLength"] = this.width - this.height / 4;
           selectedShapeObject["height"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === TEXT_NAME) {
+          selectedShapeObject["positionX"] = this.positionX + this.width / 2;
+          selectedShapeObject["positionY"] = this.positionY + this.height;
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["fontSize"] = this.height;
         }
         clearCanvas();
         this.draw(ctx);
@@ -401,6 +455,13 @@ class SelectionBox {
           selectedShapeObject["positionY"] = this.positionY + this.height / 4;
           selectedShapeObject["arrowLength"] = this.width - this.height / 4;
           selectedShapeObject["height"] = this.height / 2;
+        }
+
+        if (selectedShapeObject["name"] === TEXT_NAME) {
+          selectedShapeObject["positionX"] = this.positionX + this.width / 2;
+          selectedShapeObject["positionY"] = this.positionY + this.height;
+          selectedShapeObject["width"] = this.width;
+          selectedShapeObject["fontSize"] = this.height;
         }
         clearCanvas();
         this.draw(ctx);

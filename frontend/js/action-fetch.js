@@ -32,7 +32,7 @@ const fetchPost = async (url, data) => {
  */
 const fetchDelete = async (url) => {
   await fetch(url, { method: "DELETE" });
-  shapeList.shift();
+  // shapeList.shift();
   objectReferenceList.shift();
 };
 

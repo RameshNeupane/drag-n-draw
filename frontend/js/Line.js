@@ -22,15 +22,32 @@ class Line {
     this.lineWidth = lineWidth;
     this.lineCap = lineCap;
     this.strokeStyle = strokeStyle;
-    this.isMouseDown = false;
+    this.isDetected = false;
 
     // canvas.addEventListener("mousedown", (event) => {
     //   this.initialMousePositionX = event.clientX;
     //   this.initialMousePositionY = event.clientY;
-    //   if (this.initialMousePositionX >= this.startPositionX &&
-    //     this.initialMousePositionX <= this.endPositionX &&
-    //     this.initialMousePositionY >= )
-    // })
+    //   if (
+    //     this.initialMousePositionX >= this.startPositionX &&
+    //     this.initialMousePositionX <= this.endPositionX + this.lineWidth &&
+    //     this.initialMousePositionY >= this.startPositionY &&
+    //     this.initialMousePositionY <= this.endPositionX + this.lineWidth
+    //   ) {
+    //     this.isDetected = true;
+    //     selectedShapeObject = this;
+    //     selectionBox.setBoxShape(
+    //       this.startPositionX,
+    //       this.startPositionY,
+    //       this.endPositionX - this.startPositionX,
+    //       this.lineWidth
+    //     );
+    //     selectionBox.draw(ctx);
+    //   }
+    // });
+
+    // canvas.addEventListener("mouseup", (event) => {
+    //   this.isDetected = false;
+    // });
   }
   draw(ctx) {
     ctx.beginPath();

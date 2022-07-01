@@ -66,5 +66,6 @@ const TEXT_NAME = "text";
 const TEXT_VALUE = "drag-n-draw";
 const TEXT_POSITION_X = 300;
 const TEXT_POSITION_Y = 200;
-const TEXT_FONT = "16px poppins";
+const TEXT_FONT_SIZE = 16;
+const TEXT_FONT_FAMILY = "poppins";
 const TEXT_FILL_STYLE = "black";

@@ -88,7 +88,8 @@ const initializeObjectReferenceList = () => {
           shape["textValue"],
           shape["positionX"],
           shape["positionY"],
-          shape["font"],
+          shape["fontSize"],
+          shape["fontFamily"],
           shape["fillStyle"]
         );
         objectReferenceList.push(text);
@@ -187,7 +188,8 @@ const updateObjectReferenceList = (shape) => {
         shape["textValue"],
         shape["positionX"],
         shape["positionY"],
-        shape["font"],
+        shape["fontSize"],
+        shape["fontFamily"],
         shape["fillStyle"]
       );
       objectReferenceList.push(text);

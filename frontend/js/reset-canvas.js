@@ -2,12 +2,22 @@
  * reset workspace/canvas to the blank
  */
 const resetCanvas = () => {
-  objectReferenceList.forEach(async (shape) => {
+  objectReferenceList.forEach((shape) => {
     const url = `${URL_ROOT}/${shape["name"]}/${shape["_id"]}`;
-    await fetchDelete(url);
+    fetchDelete(url);
   });
+  shapeList = [];
+  selectedShapeObject = null;
+
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  getAllShapes();
 };
 
 const resetCanvasBtn = document.querySelector("#delete-workspace-icon");
-resetCanvasBtn.addEventListener("click", resetCanvas, false);
+resetCanvasBtn.addEventListener(
+  "click",
+  () => {
+    resetCanvas();
+  },
+  false
+);
