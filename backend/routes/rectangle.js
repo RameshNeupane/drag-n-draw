@@ -14,6 +14,7 @@ rectangleRouter.get("/", async (req, res) => {
   }
 });
 
+// post
 rectangleRouter.post("/", async (req, res) => {
   const rectangle = new Rectangle({
     name: req.body.name,
@@ -33,6 +34,7 @@ rectangleRouter.post("/", async (req, res) => {
   }
 });
 
+// delete
 rectangleRouter.delete("/:rectangleId", async (req, res) => {
   try {
     const deletedRectangle = await Rectangle.deleteOne({
@@ -44,6 +46,7 @@ rectangleRouter.delete("/:rectangleId", async (req, res) => {
   }
 });
 
+// patch/update
 rectangleRouter.patch("/:rectangleId", async (req, res) => {
   try {
     const id = req.params.rectangleId;

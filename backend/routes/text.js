@@ -14,6 +14,7 @@ textRouter.get("/", async (req, res) => {
   }
 });
 
+// post
 textRouter.post("/", async (req, res) => {
   const text = new Text({
     name: req.body.name,
@@ -33,6 +34,7 @@ textRouter.post("/", async (req, res) => {
   }
 });
 
+// delete
 textRouter.delete("/:textId", async (req, res) => {
   try {
     const deletedText = await Text.deleteOne({
@@ -44,6 +46,7 @@ textRouter.delete("/:textId", async (req, res) => {
   }
 });
 
+// patch/update
 textRouter.patch("/:textId", async (req, res) => {
   try {
     const id = req.params.textId;

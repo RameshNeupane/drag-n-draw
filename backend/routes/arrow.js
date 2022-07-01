@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const Arrow = require("../models/Arrow");
 
 const arrowRouter = express.Router();
@@ -14,6 +13,7 @@ arrowRouter.get("/", async (req, res) => {
   }
 });
 
+// post
 arrowRouter.post("/", async (req, res) => {
   const arrow = new Arrow({
     name: req.body.name,
@@ -34,6 +34,7 @@ arrowRouter.post("/", async (req, res) => {
   }
 });
 
+// delete
 arrowRouter.delete("/:arrowId", async (req, res) => {
   try {
     const deletedArrow = await Arrow.deleteOne({
@@ -45,6 +46,7 @@ arrowRouter.delete("/:arrowId", async (req, res) => {
   }
 });
 
+// patch/update
 arrowRouter.patch("/:arrowId", async (req, res) => {
   try {
     const id = req.params.arrowId;

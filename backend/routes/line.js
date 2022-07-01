@@ -14,6 +14,7 @@ lineRouter.get("/", async (req, res) => {
   }
 });
 
+// post
 lineRouter.post("/", async (req, res) => {
   const line = new Line({
     name: req.body.name,
@@ -34,6 +35,7 @@ lineRouter.post("/", async (req, res) => {
   }
 });
 
+// delete
 lineRouter.delete("/:lineId", async (req, res) => {
   try {
     const deletedLine = await Line.deleteOne({
@@ -45,6 +47,7 @@ lineRouter.delete("/:lineId", async (req, res) => {
   }
 });
 
+// patch/update
 lineRouter.patch("/:lineId", async (req, res) => {
   try {
     const id = req.params.lineId;

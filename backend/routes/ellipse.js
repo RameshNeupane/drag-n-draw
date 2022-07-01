@@ -15,6 +15,7 @@ ellipseRouter.get("/", async (req, res) => {
   }
 });
 
+// post
 ellipseRouter.post("/", async (req, res) => {
   const ellipse = new Ellipse({
     name: req.body.name,
@@ -39,6 +40,7 @@ ellipseRouter.post("/", async (req, res) => {
   }
 });
 
+// delete
 ellipseRouter.delete("/:ellipseId", async (req, res) => {
   try {
     const deletedEllipse = await Ellipse.deleteOne({
@@ -50,6 +52,7 @@ ellipseRouter.delete("/:ellipseId", async (req, res) => {
   }
 });
 
+// patch/update
 ellipseRouter.patch("/:ellipseId", async (req, res) => {
   try {
     const id = req.params.ellipseId;

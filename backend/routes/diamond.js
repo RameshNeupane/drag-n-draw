@@ -15,6 +15,7 @@ diamondRouter.get("/", async (req, res) => {
   }
 });
 
+// post
 diamondRouter.post("/", async (req, res) => {
   const diamond = new Diamond({
     name: req.body.name,
@@ -35,6 +36,7 @@ diamondRouter.post("/", async (req, res) => {
   }
 });
 
+// delete
 diamondRouter.delete("/:diamondId", async (req, res) => {
   try {
     const deletedDiamond = await Diamond.deleteOne({
@@ -46,6 +48,7 @@ diamondRouter.delete("/:diamondId", async (req, res) => {
   }
 });
 
+// patch/update
 diamondRouter.patch("/:diamondId", async (req, res) => {
   try {
     const id = req.params.diamondId;
