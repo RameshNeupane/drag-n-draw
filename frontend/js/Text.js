@@ -44,7 +44,9 @@ class TextValue {
           this.width,
           this.fontSize
         );
+        clearCanvas();
         selectionBox.draw(ctx);
+        drawShapes();
       }
     });
   }

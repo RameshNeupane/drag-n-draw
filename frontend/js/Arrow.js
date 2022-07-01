@@ -46,6 +46,7 @@ class Arrow {
         );
         clearCanvas();
         selectionBox.draw(ctx);
+        drawShapes();
       }
     });
 

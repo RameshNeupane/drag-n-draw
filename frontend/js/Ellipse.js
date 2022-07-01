@@ -53,7 +53,9 @@ class Ellipse {
           2 * this.radiusX,
           2 * this.radiusY
         );
+        clearCanvas();
         selectionBox.draw(ctx);
+        drawShapes();
       }
     });
 

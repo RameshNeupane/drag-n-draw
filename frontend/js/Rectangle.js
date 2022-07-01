@@ -57,6 +57,7 @@ class Rectangle {
           this.height
         );
         selectionBox.draw(ctx);
+        drawShapes();
       }
     });
 
@@ -78,6 +79,5 @@ class Rectangle {
     ctx.fill();
     ctx.stroke();
     ctx.closePath();
-    // ctx.save();
   }
 }

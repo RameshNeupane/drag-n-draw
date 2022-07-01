@@ -69,9 +69,6 @@ class SelectionBox {
       this.isBottomLeftBox = false;
       this.isBottomMiddleBox = false;
       this.isBottomRightBox = false;
-      // shapeList = [...objectReferenceList];
-      // console.log(objectReferenceList);
-      // console.log(shapeList);
     });
 
     canvas.addEventListener("mousemove", (event) => {
@@ -116,7 +113,6 @@ class SelectionBox {
         }
         clearCanvas();
         this.draw(ctx);
-        // selectedShapeObject.draw(ctx);
         drawShapes();
       }
       if (this.isTopLeftBox) {
@@ -163,7 +159,6 @@ class SelectionBox {
         }
         clearCanvas();
         this.draw(ctx);
-        // selectedShapeObject.draw(ctx);
         drawShapes();
       }
 
@@ -203,7 +198,6 @@ class SelectionBox {
         }
         clearCanvas();
         this.draw(ctx);
-        // selectedShapeObject.draw(ctx);
         drawShapes();
       }
 
@@ -249,7 +243,6 @@ class SelectionBox {
         }
         clearCanvas();
         this.draw(ctx);
-        // selectedShapeObject.draw(ctx);
         drawShapes();
       }
 
@@ -293,7 +286,6 @@ class SelectionBox {
         }
         clearCanvas();
         this.draw(ctx);
-        // selectedShapeObject.draw(ctx);
         drawShapes();
       }
 
@@ -335,7 +327,6 @@ class SelectionBox {
         }
         clearCanvas();
         this.draw(ctx);
-        // selectedShapeObject.draw(ctx);
         drawShapes();
       }
 

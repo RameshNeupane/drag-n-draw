@@ -59,7 +59,9 @@ class Diamond {
           2 * this.width,
           2 * this.height
         );
+        clearCanvas();
         selectionBox.draw(ctx);
+        drawShapes();
       }
     });
 
